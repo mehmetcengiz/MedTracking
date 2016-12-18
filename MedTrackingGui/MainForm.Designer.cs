@@ -40,6 +40,7 @@
             this.btnNewPrescription = new System.Windows.Forms.Button();
             this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.btnSearchPatient = new System.Windows.Forms.Button();
+            this.lblTodaySales = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataSaleList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,10 +56,10 @@
             this.date,
             this.totalMedicine,
             this.totalPrice});
-            this.dataSaleList.Location = new System.Drawing.Point(12, 12);
+            this.dataSaleList.Location = new System.Drawing.Point(12, 36);
             this.dataSaleList.Name = "dataSaleList";
             this.dataSaleList.ReadOnly = true;
-            this.dataSaleList.Size = new System.Drawing.Size(645, 168);
+            this.dataSaleList.Size = new System.Drawing.Size(645, 290);
             this.dataSaleList.TabIndex = 0;
             // 
             // directorySearcher1
@@ -111,6 +112,7 @@
             this.btnNewSale.TabIndex = 1;
             this.btnNewSale.Text = "New Sale";
             this.btnNewSale.UseVisualStyleBackColor = true;
+            this.btnNewSale.Click += new System.EventHandler(this.btnNewSale_Click);
             // 
             // btnNewPrescription
             // 
@@ -139,11 +141,22 @@
             this.btnSearchPatient.Text = "Search Patient";
             this.btnSearchPatient.UseVisualStyleBackColor = true;
             // 
+            // lblTodaySales
+            // 
+            this.lblTodaySales.AutoSize = true;
+            this.lblTodaySales.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTodaySales.Location = new System.Drawing.Point(258, 9);
+            this.lblTodaySales.Name = "lblTodaySales";
+            this.lblTodaySales.Size = new System.Drawing.Size(125, 24);
+            this.lblTodaySales.TabIndex = 4;
+            this.lblTodaySales.Text = "Today Sales";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 427);
+            this.Controls.Add(this.lblTodaySales);
             this.Controls.Add(this.btnSearchPatient);
             this.Controls.Add(this.btnSearchEmployee);
             this.Controls.Add(this.btnNewPrescription);
@@ -156,6 +169,7 @@
             this.Text = "Medical Tracking";
             ((System.ComponentModel.ISupportInitialize)(this.dataSaleList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -173,5 +187,6 @@
         private System.Windows.Forms.Button btnNewPrescription;
         private System.Windows.Forms.Button btnSearchEmployee;
         private System.Windows.Forms.Button btnSearchPatient;
+        private System.Windows.Forms.Label lblTodaySales;
     }
 }

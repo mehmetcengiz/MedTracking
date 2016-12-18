@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MedTrackingGui
 {
-    public partial class MainForm : Form
+    public partial class SearchEmployee : Form
     {
-        public MainForm()
+        public SearchEmployee()
         {
             InitializeComponent();
-        }
-
-        private void btnNewSale_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
