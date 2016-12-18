@@ -17,15 +17,7 @@ namespace MedTrackingGui
         static void Main() {
             DBOperations.Initialize();
             
-            var asd = DBOperations.DoLogin("Johne", "Doe");
-
-            return;
-
-
-
-
-
-
+            /*
             SqlConnection sqlConnection1 = new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=MedTrackingDB;Integrated Security=True");
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
@@ -76,7 +68,7 @@ namespace MedTrackingGui
             // Trigger should be fired
             cmd.ExecuteNonQuery();
 
-            // ----------------------------------------------------------------------
+            // ----------------------------------------------------------------------*/
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

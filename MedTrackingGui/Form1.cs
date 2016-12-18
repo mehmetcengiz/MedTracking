@@ -17,12 +17,22 @@ namespace MedTrackingGui
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-           
-            MainForm mainform = new MainForm();
-            mainform.Show();
-            this.Hide();
+        private void btnLogin_Click(object sender, EventArgs e) {
+            bool requestLogin = DBOperations.DoLogin(txtBoxUserName.Text, txtBoxPassword.Text);
+
+            if (requestLogin) {
+                MainForm mainform = new MainForm();
+                mainform.Show();
+                this.Hide();
+            }
+            else {
+                MessageBox.Show(@"Loggin Failed ! ");
+            }
+
+
+
+
+
         }
     }
 }
