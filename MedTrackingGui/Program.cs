@@ -14,8 +14,18 @@ namespace MedTrackingGui
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
-        {
+        static void Main() {
+            DBOperations.Initialize();
+            
+            var asd = DBOperations.DoLogin("Johne", "Doe");
+
+            return;
+
+
+
+
+
+
             SqlConnection sqlConnection1 = new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=MedTrackingDB;Integrated Security=True");
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
@@ -70,7 +80,7 @@ namespace MedTrackingGui
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Login());
         }
     }
 }

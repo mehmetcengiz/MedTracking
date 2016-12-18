@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace MedTrackingGui
 {
-    public partial class Login : Form
+    public partial class MainForm : Form
     {
-        public Login()
+        public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-           
-            MainForm mainform = new MainForm();
-            mainform.Show();
-            this.Hide();
         }
     }
 }
