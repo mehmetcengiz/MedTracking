@@ -47,17 +47,18 @@ namespace MedTrackingGui {
 
 
             foreach (var parameter in parameters)
-            {
                 command.Parameters.Add(@"@" + parameter.Key, SqlDbType.VarChar).Value = parameter.Value;
-            }
+
 
             var result = new List<List<object>>();
-            List<object> tempColumns;
-            IDataRecord tempRow;
+
 
             _sqlConnection.Open();
             command.Connection = _sqlConnection;
             var reader = command.ExecuteReader();
+
+            List<object> tempColumns;
+            IDataRecord tempRow;
 
             while (reader.Read())
             {
