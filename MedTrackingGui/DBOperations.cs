@@ -12,42 +12,15 @@ namespace MedTrackingGui {
                 new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=MedTrackingDB;Integrated Security=True");
         }
 
-        public static bool DoLogin(string userName, string password) {
-            Dictionary<string, string> parameters = new Dictionary<string, string>(2) {
-                {"userName", userName},
-                {"password", password}
-            };
-
-            var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
-                parameters);
-
-            return result.Count != 0;
-        }
-
-        public static bool AddNewMedicineGroup(string name) {
-            // TODO Implement here
-            return true;
-        }
-
-        public static List<List<object>> GetAllEmployees() {
-            return ExecuteQuery("SELECT * FROM Employee");
-            /*
-             * {1, 1, "John", "Doe", "5551234"} -> List<object>
-             * ....
-             * 
-             */
-        }
-        private static List<List<object>> ExecuteQuery(string query, Dictionary<string, string> parameters)
+        public static List<List<object>> ExecuteQuery(string query)
         {
+            // TODO Handle DB exception
+
             SqlCommand command = new SqlCommand
             {
                 CommandType = CommandType.Text,
                 CommandText = query
             };
-
-
-            foreach (var parameter in parameters)
-                command.Parameters.Add(@"@" + parameter.Key, SqlDbType.VarChar).Value = parameter.Value;
 
 
             var result = new List<List<object>>();
@@ -78,10 +51,48 @@ namespace MedTrackingGui {
             return result;
         }
 
-        private static List<List<object>> ExecuteQuery(string query)
-        {
-            return ExecuteQuery(query, new Dictionary<string, string>());
-        }
+        //public static bool DoLogin(string userName, string password) {
+        //    var parameters = new Dictionary<string, string>(2) {
+        //        {"userName", userName},
+        //        {"password", password}
+        //    };
 
+        //    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
+        //        parameters);
+
+        //    return result.Count != 0;
+        //}
+
+        //public static int GetPharmacyIdByEmployeeNameAndSurname(string userName, string password) {
+        //    var parameters = new Dictionary<string, string>(2) {
+        //        {"userName", userName},
+        //        {"password", password}
+        //    };
+
+        //    var result = ExecuteQuery(@"SELECT Pharmacy.Id FROM Pharmacy INNER JOIN Employee ON Pharmacy.Id = Employee.PharmacyId WHERE Employee.Name = @userName AND Employee.Surname = @password",
+        //        parameters);
+
+        //    return (int) result[0][0];
+        //}
+
+        //public static bool AddNewMedicineGroup(string name) {
+        //    return true;
+        //}
+
+        //public static Employee GetEmployeeByNameAndSurname(string name, string surname) {
+        //    var parameters = new Dictionary<string, string>(2) {
+        //        {"userName", name},
+        //        {"password", surname}
+        //    };
+
+        //    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
+        //        parameters);
+
+        //    if (result.Count == 0) {
+        //        return null;
+        //    }
+
+        //    return null;
+        //}
     }
 }

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MedTrackingGui.Service;
 
 namespace MedTrackingGui
 {
@@ -18,21 +12,17 @@ namespace MedTrackingGui
         }
 
         private void btnLogin_Click(object sender, EventArgs e) {
-            bool requestLogin = DBOperations.DoLogin(txtBoxUserName.Text, txtBoxPassword.Text);
+            if (AuthService.DoLogin(txtBoxUserName.Text, txtBoxPassword.Text)) {
+                // TODO Create Employee, Pharmacy and OTHER MODEL classes
+                // TODO After successful login, instantiate Employee as User and Pharmacy
 
-            if (requestLogin) {
                 MainForm mainform = new MainForm();
                 mainform.Show();
                 this.Hide();
             }
             else {
-                MessageBox.Show(@"Loggin Failed ! ");
+                MessageBox.Show(@"Login Failed ! Username or Password is incorrect");
             }
-
-
-
-
-
         }
     }
 }

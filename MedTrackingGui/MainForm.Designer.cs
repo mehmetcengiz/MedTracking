@@ -28,81 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataSaleList = new System.Windows.Forms.DataGridView();
-            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
-            this.saleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalMedicine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewSale = new System.Windows.Forms.Button();
             this.btnNewPrescription = new System.Windows.Forms.Button();
             this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.btnSearchPatient = new System.Windows.Forms.Button();
             this.lblTodaySales = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSaleList)).BeginInit();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.colNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEmployee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colPatient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTotalMedicine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTotalPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // dataSaleList
-            // 
-            this.dataSaleList.AllowUserToAddRows = false;
-            this.dataSaleList.AllowUserToDeleteRows = false;
-            this.dataSaleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataSaleList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.saleType,
-            this.employee,
-            this.patient,
-            this.date,
-            this.totalMedicine,
-            this.totalPrice});
-            this.dataSaleList.Location = new System.Drawing.Point(12, 36);
-            this.dataSaleList.Name = "dataSaleList";
-            this.dataSaleList.ReadOnly = true;
-            this.dataSaleList.Size = new System.Drawing.Size(645, 290);
-            this.dataSaleList.TabIndex = 0;
-            // 
-            // directorySearcher1
-            // 
-            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            // 
-            // saleType
-            // 
-            this.saleType.HeaderText = "Type";
-            this.saleType.Name = "saleType";
-            this.saleType.ReadOnly = true;
-            // 
-            // employee
-            // 
-            this.employee.HeaderText = "Employee";
-            this.employee.Name = "employee";
-            this.employee.ReadOnly = true;
-            // 
-            // patient
-            // 
-            this.patient.HeaderText = "Patient";
-            this.patient.Name = "patient";
-            this.patient.ReadOnly = true;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // totalMedicine
-            // 
-            this.totalMedicine.HeaderText = "Total Medicine";
-            this.totalMedicine.Name = "totalMedicine";
-            this.totalMedicine.ReadOnly = true;
-            // 
-            // totalPrice
-            // 
-            this.totalPrice.HeaderText = "TotalPrice";
-            this.totalPrice.Name = "totalPrice";
-            this.totalPrice.ReadOnly = true;
             // 
             // btnNewSale
             // 
@@ -112,7 +51,6 @@
             this.btnNewSale.TabIndex = 1;
             this.btnNewSale.Text = "New Sale";
             this.btnNewSale.UseVisualStyleBackColor = true;
-            this.btnNewSale.Click += new System.EventHandler(this.btnNewSale_Click);
             // 
             // btnNewPrescription
             // 
@@ -151,42 +89,93 @@
             this.lblTodaySales.TabIndex = 4;
             this.lblTodaySales.Text = "Today Sales";
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colNumber,
+            this.colType,
+            this.colEmployee,
+            this.colPatient,
+            this.colDate,
+            this.colTotalMedicine,
+            this.colTotalPrice});
+            this.listView1.Location = new System.Drawing.Point(12, 38);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(645, 288);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // colNumber
+            // 
+            this.colNumber.Text = "#";
+            this.colNumber.Width = 33;
+            // 
+            // colType
+            // 
+            this.colType.Text = "Type";
+            this.colType.Width = 78;
+            // 
+            // colEmployee
+            // 
+            this.colEmployee.Text = "Employee";
+            this.colEmployee.Width = 119;
+            // 
+            // colPatient
+            // 
+            this.colPatient.Text = "Patient";
+            this.colPatient.Width = 112;
+            // 
+            // colDate
+            // 
+            this.colDate.Text = "Date";
+            this.colDate.Width = 99;
+            // 
+            // colTotalMedicine
+            // 
+            this.colTotalMedicine.Text = "Total Medicine";
+            this.colTotalMedicine.Width = 82;
+            // 
+            // colTotalPrice
+            // 
+            this.colTotalPrice.Text = "Total Price";
+            this.colTotalPrice.Width = 114;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 427);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.lblTodaySales);
             this.Controls.Add(this.btnSearchPatient);
             this.Controls.Add(this.btnSearchEmployee);
             this.Controls.Add(this.btnNewPrescription);
             this.Controls.Add(this.btnNewSale);
-            this.Controls.Add(this.dataSaleList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Medical Tracking";
-            ((System.ComponentModel.ISupportInitialize)(this.dataSaleList)).EndInit();
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataSaleList;
-        private System.DirectoryServices.DirectorySearcher directorySearcher1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn saleType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalMedicine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
         private System.Windows.Forms.Button btnNewSale;
         private System.Windows.Forms.Button btnNewPrescription;
         private System.Windows.Forms.Button btnSearchEmployee;
         private System.Windows.Forms.Button btnSearchPatient;
         private System.Windows.Forms.Label lblTodaySales;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader colNumber;
+        private System.Windows.Forms.ColumnHeader colType;
+        private System.Windows.Forms.ColumnHeader colEmployee;
+        private System.Windows.Forms.ColumnHeader colPatient;
+        private System.Windows.Forms.ColumnHeader colDate;
+        private System.Windows.Forms.ColumnHeader colTotalMedicine;
+        private System.Windows.Forms.ColumnHeader colTotalPrice;
     }
 }
