@@ -51,19 +51,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\GivenProduct.cs" />
+    <Compile Include="Model\Manufacturer.cs" />
+    <Compile Include="Model\Medicine.cs" />
+    <Compile Include="Model\MedicineBox.cs" />
+    <Compile Include="Model\Supplier.cs" />
+    <Compile Include="SaleOrPrescription.cs" />
     <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Prescription.cs" />
+    <Compile Include="Service\ManufacturerService.cs" />
+    <Compile Include="Service\MedicineBoxService.cs" />
+    <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PrescriptionsService.cs" />
     <Compile Include="Service\AuthService.cs" />
     <Compile Include="DBOperations.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Service\EmployeeService.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -102,8 +111,9 @@
     <Compile Include="SearchPatient.Designer.cs">
       <DependentUpon>SearchPatient.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Service\SupplierService.cs" />
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
