@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\MainFormController.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\GivenProduct.cs" />
     <Compile Include="Model\Manufacturer.cs" />
