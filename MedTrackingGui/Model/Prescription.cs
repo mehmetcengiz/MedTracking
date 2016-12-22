@@ -5,21 +5,29 @@ using MedTrackingGui.Service;
 namespace MedTrackingGui.Model {
     public class Prescription {
         public int Id { get; private set; }
-        public Employee Employee { get; private set; }
-        public Patient Patient { get; private set; }
-        public Doctor Doctor { get; private set; }
-        public Pharmacy Pharmacy { get; private set; }
-        public DateTime CreatedAt { get; private set; }
 
+        public Employee Employee => EmployeeService.GetEmployeeById(_employeeId);
+        public Patient Patient => PatientService.GetPatientById(_patientId);
+        public Doctor Doctor => DoctorService.GetDoctorByDiplomaNumber(_doctorDiplomaNumber);
+        public Pharmacy Pharmacy => PharmacyService.GetPharmacyById(_pharmacyId);
+        public DateTime CreatedAt { get; }
         public List<MedicineBox> MedicineBoxes { get; private set; }
+
+        private readonly int _employeeId;
+        private readonly int _patientId;
+        private readonly int _doctorDiplomaNumber;
+        private readonly int _pharmacyId;
+
 
         public Prescription(int id, int employeeId, int patientId, int doctorDiplomaNumber, int pharmacyId,
             DateTime createdAt) {
             Id = id;
-            Employee = EmployeeService.GetEmployeeById(employeeId);
-            Patient = PatientService.GetPatientById(patientId);
-            Doctor = DoctorService.GetDoctorByDiplomaNumber(doctorDiplomaNumber);
-            Pharmacy = PharmacyService.GetPharmacyById(pharmacyId);
+            _employeeId = employeeId;
+            _patientId = patientId;
+            _doctorDiplomaNumber = doctorDiplomaNumber;
+            _pharmacyId = pharmacyId;
+
+
             CreatedAt = createdAt;
 
             MedicineBoxes = MedicineBoxService.GetMedicineBoxesByPrescriptionId(id);

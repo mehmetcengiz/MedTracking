@@ -5,29 +5,30 @@ using MedTrackingGui.Service;
 namespace MedTrackingGui.Model {
     public class MedicineBox {
         public int QrCode { get; private set; }
-        public Prescription Prescription { get; private set; }
-        public Sale Sale { get; private set; }
-        public Medicine Medicine { get; private set; }
-        public Pharmacy Pharmacy { get; private set; }
-        public Supplier Supplier { get; private set; }
+
+        public Prescription Prescription => _prescriptionId.HasValue ? PrescriptionsService.GetPrescriptionById(_prescriptionId.Value) : null;
+        public Sale Sale => _saleId.HasValue ? SalesService.GetSaleById(_saleId.Value) : null;
+        public Medicine Medicine => MedicineService.GetMedicineById(_medicineId);
+        public Pharmacy Pharmacy => PharmacyService.GetPharmacyById(_pharmacyId);
+        public Supplier Supplier => SupplierService.GetSupplierById(_supplierId);
         public DateTime ArrivedAt { get; private set; }
         public double AcquisitionCost { get; private set; }
+
+        private int? _prescriptionId;
+        private int? _saleId;
+        private readonly int _medicineId;
+        private readonly int _pharmacyId;
+        private readonly int _supplierId;
 
         public MedicineBox(int qrCode, int? prescriptionId, int? saleId, int medicineId, int pharmacyId, int supplierId,
             DateTime arrivedAt, double acquisitonCost) {
             QrCode = qrCode;
+            _prescriptionId = prescriptionId;
+            _saleId = saleId;
+            _medicineId = medicineId;
+            _pharmacyId = pharmacyId;
+            _supplierId = supplierId;
 
-            if (prescriptionId.HasValue) {
-                Prescription = PrescriptionsService.GetPrescriptionById(prescriptionId.Value);
-            }
-
-            if (saleId.HasValue) {
-                Sale = SalesService.GetSaleById(saleId.Value);
-            }
-
-            Medicine = MedicineService.GetMedicineById(medicineId);
-            Pharmacy = PharmacyService.GetPharmacyById(pharmacyId);
-            Supplier = SupplierService.GetSupplierById(supplierId);
             ArrivedAt = arrivedAt;
             AcquisitionCost = acquisitonCost;
         }

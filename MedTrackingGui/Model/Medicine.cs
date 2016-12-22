@@ -4,14 +4,20 @@ using MedTrackingGui.Service;
 namespace MedTrackingGui.Model {
     public class Medicine {
         public int Id { get; private set; }
-        public Manufacturer Manufacturer { get; private set; }
+
+        public Manufacturer Manufacturer {
+            get { return ManufacturerService.GetManufacturerById(_manufacturerId); }
+        }
+
         public string Name { get; private set; }
         public double Price { get; private set; }
         public string Ingredients { get; private set; }
 
+        private int _manufacturerId;
+
         public Medicine(int id, int manufacturerId, string name, double price, string ingredients) {
             Id = id;
-            Manufacturer = ManufacturerService.GetManufacturerById(manufacturerId);
+            _manufacturerId = manufacturerId;
             Name = name;
             Price = price;
             Ingredients = ingredients;

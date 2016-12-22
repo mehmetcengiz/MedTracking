@@ -5,16 +5,21 @@ using MedTrackingGui.Service;
 namespace MedTrackingGui.Model {
     public class Sale {
         public int Id { get; private set; }
-        public Employee Employee { get; private set; }
-        public Pharmacy Pharmacy { get; private set; }
+        public Employee Employee => EmployeeService.GetEmployeeById(_employeeId);
+        public Pharmacy Pharmacy => PharmacyService.GetPharmacyById(_pharmacyId);
         public DateTime SoldAt { get; private set; }
 
         public List<MedicineBox> MedicineBoxes { get; private set; }
 
+        private readonly int _employeeId;
+        private readonly int _pharmacyId;
+
+
         public Sale(int id, int employeeId, int pharmacyId, DateTime soldAt) {
             Id = id;
-            Employee = EmployeeService.GetEmployeeById(employeeId);
-            Pharmacy = PharmacyService.GetPharmacyById(pharmacyId);
+            _employeeId = employeeId;
+            _pharmacyId = pharmacyId;
+
             SoldAt = soldAt;
 
             MedicineBoxes = MedicineBoxService.GetMedicineBoxesBySaleId(id);
