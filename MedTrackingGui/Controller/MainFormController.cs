@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MedTrackingGui.Model;
 using MedTrackingGui.Service;
 
-namespace MedTrackingGui.Controller
-{
-    class MainFormController
-    {
+namespace MedTrackingGui.Controller {
+    class MainFormController {
         public List<GivenProduct> GetLastGivenProducts() {
             //Get List of Sale and List of Prescriptions
             var sales = SalesService.GetLastSales(count: 30);
             var prescriptions = PrescriptionsService.GetLastPrescriptions(count: 30);
 
             //Merge Sales and List to Single List
-            var salesOrPrescription = MergeSalesAndPrescriptions(sales,prescriptions);
+            var salesOrPrescription = MergeSalesAndPrescriptions(sales, prescriptions);
 
             //Sort the List
             var sortedSalesOrPrescriptions = SortSalesOrPrescriptionByDate(salesOrPrescription);
@@ -33,7 +28,8 @@ namespace MedTrackingGui.Controller
         }
 
         private List<SaleOrPrescription> MergeSalesAndPrescriptions(List<Sale> sales, List<Prescription> prescriptions) {
-            List<SaleOrPrescription> salesOrPrescription = new List<SaleOrPrescription>(sales.Count + prescriptions.Count);
+            List<SaleOrPrescription> salesOrPrescription =
+                new List<SaleOrPrescription>(sales.Count + prescriptions.Count);
 
             foreach (var sale in sales) {
                 salesOrPrescription.Add(new SaleOrPrescription(sale, sale.SoldAt));

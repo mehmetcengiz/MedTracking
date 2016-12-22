@@ -25,7 +25,8 @@ namespace MedTrackingGui.Model {
                 Date = saleOrPrescription.Sale.SoldAt;
 
                 medicines = saleOrPrescription.Sale.MedicineBoxes;
-            } else {
+            }
+            else {
                 Type = @"Prescription";
                 EmployeeFullName = saleOrPrescription.Prescription.Employee.FullName;
                 PatientFullName = saleOrPrescription.Prescription.Employee.FullName;
