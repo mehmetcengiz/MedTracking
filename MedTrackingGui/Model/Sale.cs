@@ -14,7 +14,6 @@ namespace MedTrackingGui.Model {
 		private readonly int _employeeId;
 		private readonly int _pharmacyId;
 
-
 		public Sale(int id, int employeeId, int pharmacyId, DateTime soldAt) {
 			Id = id;
 			_employeeId = employeeId;

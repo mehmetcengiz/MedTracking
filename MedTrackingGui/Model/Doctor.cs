@@ -22,6 +22,6 @@ namespace MedTrackingGui.Model {
 
 		public Doctor(IReadOnlyList<object> parameters)
 			: this((int) parameters[0], (string) parameters[1], (string) parameters[2],
-				(string) parameters[3], (string) parameters[4]) {}
+				(string) parameters[3], parameters[4] as string) {}
 	}
 }

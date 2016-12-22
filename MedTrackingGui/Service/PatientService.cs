@@ -1,4 +1,5 @@
-﻿using MedTrackingGui.Model;
+﻿using System.Collections.Generic;
+using MedTrackingGui.Model;
 
 namespace MedTrackingGui.Service {
 	class PatientService {
@@ -7,6 +8,23 @@ namespace MedTrackingGui.Service {
 			var results = DBOperations.ExecuteQuery(query);
 
 			return results.Count == 0 ? null : new Patient(results[0]);
+		}
+
+		public static List<Patient> GetAllPatients(int limit = 1000) {
+			string query = $@"SELECT TOP {limit} * FROM Patient";
+			var results = DBOperations.ExecuteQuery(query);
+
+			if (results.Count == 0) {
+				return null;
+			}
+
+			List<Patient> patients = new List<Patient>(results.Count);
+
+			foreach (var result in results) {
+				patients.Add(new Patient(result));
+			}
+
+			return patients;
 		}
 	}
 }

@@ -9,8 +9,7 @@ namespace MedTrackingGui {
 		public static void Initialize() {
 			_sqlConnection =
 				//new SqlConnection("Data Source=DESKTOP-RUKSM9K;Initial Catalog=medtracking;Integrated Security=True");
-				//new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=MedTrackingDB;Integrated Security=True");
-				new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=medtracking;Integrated Security=True");
+				//new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=medtracking;Integrated Security=True");
 		}
 
 		public static List<List<object>> ExecuteQuery(string query) {

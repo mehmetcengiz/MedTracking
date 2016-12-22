@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainFormController.cs" />
+    <Compile Include="Controller\NewPrescriptionController.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\GivenProduct.cs" />
     <Compile Include="Model\Manufacturer.cs" />
@@ -118,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPrescription.resx">
+      <DependentUpon>NewPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewSale.resx">
       <DependentUpon>NewSale.cs</DependentUpon>

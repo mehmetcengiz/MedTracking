@@ -13,7 +13,7 @@ namespace MedTrackingGui.Model {
 		public string Surname { get; }
 		public string Phone { get; }
 
-		private int _pharmacyId;
+		private readonly int _pharmacyId;
 
 		public string FullName {
 			get { return $@"{Name} {Surname}"; }

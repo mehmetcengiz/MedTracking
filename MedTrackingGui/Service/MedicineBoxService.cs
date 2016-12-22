@@ -36,5 +36,12 @@ namespace MedTrackingGui.Service {
 
 			return medicineBoxes;
 		}
+
+		public static int GetMedicineQuantityByMedicineId(int medicineId) {
+			string query = $@"SELECT COUNT(QrCode) FROM MedicineBox WHERE MedicineId = {medicineId} AND SaleId IS NULL AND PrescriptionId IS NULL";
+			var results = DBOperations.ExecuteQuery(query);
+
+			return int.Parse(results[0][0].ToString());
+		}
 	}
 }
