@@ -3,90 +3,90 @@ using System.Data;
 using System.Data.SqlClient;
 
 namespace MedTrackingGui {
-    public static class DBOperations {
-        private static SqlConnection _sqlConnection;
+	public static class DBOperations {
+		private static SqlConnection _sqlConnection;
 
-        public static void Initialize() {
-            _sqlConnection =
-                //new SqlConnection("Data Source=DESKTOP-RUKSM9K;Initial Catalog=medtracking;Integrated Security=True");
-                //new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=MedTrackingDB;Integrated Security=True");
-                new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=medtracking;Integrated Security=True");
-        }
+		public static void Initialize() {
+			_sqlConnection =
+				//new SqlConnection("Data Source=DESKTOP-RUKSM9K;Initial Catalog=medtracking;Integrated Security=True");
+				//new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=MedTrackingDB;Integrated Security=True");
+				new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=medtracking;Integrated Security=True");
+		}
 
-        public static List<List<object>> ExecuteQuery(string query) {
-            // TODO Handle DB exception
+		public static List<List<object>> ExecuteQuery(string query) {
+			// TODO Handle DB exception
 
-            var command = new SqlCommand {
-                CommandType = CommandType.Text,
-                CommandText = query
-            };
+			var command = new SqlCommand {
+				CommandType = CommandType.Text,
+				CommandText = query
+			};
 
-            var result = new List<List<object>>();
+			var result = new List<List<object>>();
 
-            _sqlConnection.Open();
-            command.Connection = _sqlConnection;
-            var reader = command.ExecuteReader();
+			_sqlConnection.Open();
+			command.Connection = _sqlConnection;
+			var reader = command.ExecuteReader();
 
-            // ReSharper disable once TooWideLocalVariableScope
-            List<object> tempColumns;
+			// ReSharper disable once TooWideLocalVariableScope
+			List<object> tempColumns;
 
-            while (reader.Read()) {
-                var tempRowLength = reader.FieldCount;
-                tempColumns = new List<object>(tempRowLength);
+			while (reader.Read()) {
+				var tempRowLength = reader.FieldCount;
+				tempColumns = new List<object>(tempRowLength);
 
-                for (var i = 0; i < tempRowLength; i++) {
-                    tempColumns.Add(reader[i]);
-                }
+				for (var i = 0; i < tempRowLength; i++) {
+					tempColumns.Add(reader[i]);
+				}
 
-                result.Add(tempColumns);
-            }
+				result.Add(tempColumns);
+			}
 
-            _sqlConnection.Close();
-            return result;
-        }
+			_sqlConnection.Close();
+			return result;
+		}
 
-        //public static bool DoLogin(string userName, string password) {
-        //    var parameters = new Dictionary<string, string>(2) {
-        //        {"userName", userName},
-        //        {"password", password}
-        //    };
+		//public static bool DoLogin(string userName, string password) {
+		//    var parameters = new Dictionary<string, string>(2) {
+		//        {"userName", userName},
+		//        {"password", password}
+		//    };
 
-        //    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
-        //        parameters);
+		//    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
+		//        parameters);
 
-        //    return result.Count != 0;
-        //}
+		//    return result.Count != 0;
+		//}
 
-        //public static int GetPharmacyIdByEmployeeNameAndSurname(string userName, string password) {
-        //    var parameters = new Dictionary<string, string>(2) {
-        //        {"userName", userName},
-        //        {"password", password}
-        //    };
+		//public static int GetPharmacyIdByEmployeeNameAndSurname(string userName, string password) {
+		//    var parameters = new Dictionary<string, string>(2) {
+		//        {"userName", userName},
+		//        {"password", password}
+		//    };
 
-        //    var result = ExecuteQuery(@"SELECT Pharmacy.Id FROM Pharmacy INNER JOIN Employee ON Pharmacy.Id = Employee.PharmacyId WHERE Employee.Name = @userName AND Employee.Surname = @password",
-        //        parameters);
+		//    var result = ExecuteQuery(@"SELECT Pharmacy.Id FROM Pharmacy INNER JOIN Employee ON Pharmacy.Id = Employee.PharmacyId WHERE Employee.Name = @userName AND Employee.Surname = @password",
+		//        parameters);
 
-        //    return (int) result[0][0];
-        //}
+		//    return (int) result[0][0];
+		//}
 
-        //public static bool AddNewMedicineGroup(string name) {
-        //    return true;
-        //}
+		//public static bool AddNewMedicineGroup(string name) {
+		//    return true;
+		//}
 
-        //public static Employee GetEmployeeByNameAndSurname(string name, string surname) {
-        //    var parameters = new Dictionary<string, string>(2) {
-        //        {"userName", name},
-        //        {"password", surname}
-        //    };
+		//public static Employee GetEmployeeByNameAndSurname(string name, string surname) {
+		//    var parameters = new Dictionary<string, string>(2) {
+		//        {"userName", name},
+		//        {"password", surname}
+		//    };
 
-        //    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
-        //        parameters);
+		//    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
+		//        parameters);
 
-        //    if (result.Count == 0) {
-        //        return null;
-        //    }
+		//    if (result.Count == 0) {
+		//        return null;
+		//    }
 
-        //    return null;
-        //}
-    }
+		//    return null;
+		//}
+	}
 }
