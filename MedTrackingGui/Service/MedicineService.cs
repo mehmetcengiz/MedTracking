@@ -38,6 +38,7 @@ WHERE Medicine.Id IN (
 	WHERE MedicineBox.PrescriptionId IS NULL AND MedicineBox.SaleId IS NULL
 )
 GROUP BY Medicine.Id, Medicine.ManufacturerId, Medicine.[Name], Medicine.Price, Medicine.Ingredients
+ORDER BY Medicine.Name
 ";
 			var results = DBOperations.ExecuteQuery(query);
 

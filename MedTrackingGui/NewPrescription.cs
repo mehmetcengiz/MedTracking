@@ -87,5 +87,17 @@ namespace MedTrackingGui {
 				btnAddMedicineToList.Enabled = true;
 			}
 		}
+
+		private void btnSave_Click(object sender, EventArgs e) {
+			var PatientFullName = cbPatientFullNames.SelectedItem.ToString();
+			var DoctorFullName = cbDoctorFullNames.SelectedItem.ToString();
+			List<Tuple<string, int>> Medicines = new List<Tuple<string, int>>(listViewMedicines.Items.Count);
+
+			foreach (ListViewItem item in listViewMedicines.Items) {
+				Medicines.Add(new Tuple<string, int>(item.SubItems[0].Text, int.Parse(item.SubItems[1].Text)));
+			}
+
+			_newPrescriptionController.SavePrescription(PatientFullName, DoctorFullName, Medicines);
+		}
 	}
 }
