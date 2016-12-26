@@ -5,5 +5,10 @@ namespace MedTrackingGui {
 		public NewSale() {
 			InitializeComponent();
 		}
+
+		private void NewSale_Load(object sender, System.EventArgs e)
+		{
+
+		}
 	}
 }
