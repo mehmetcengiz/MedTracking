@@ -6,8 +6,7 @@ namespace MedTrackingGui.Model {
 	public class MedicineBox {
 		public int QrCode { get; private set; }
 
-		public Prescription Prescription
-			=> _prescriptionId.HasValue ? PrescriptionsService.GetPrescriptionById(_prescriptionId.Value) : null;
+		public Prescription Prescription => _prescriptionId.HasValue ? PrescriptionsService.GetPrescriptionById(_prescriptionId.Value) : null;
 
 		public Sale Sale => _saleId.HasValue ? SalesService.GetSaleById(_saleId.Value) : null;
 		public Medicine Medicine => MedicineService.GetMedicineById(_medicineId);

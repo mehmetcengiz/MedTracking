@@ -41,22 +41,20 @@ namespace MedTrackingGui.Controller {
 			return results;
 		}
 
-		//public void SavePrescription(string patientFullName, string doctorFullName, List<Tuple<string, int>> medicineBoxNamesAndQuantities) {
-		//	int PatientId = PatientService.GetIdByFullName(patientFullName);
-		//	int DoctorDiplomaNumber = DoctorService.GetDiplomaNumberByFullName(doctorFullName);
-		//	List<MedicineBox> MedicineBoxes = new List<MedicineBox>(medicineBoxNamesAndQuantities.Count);
+		public void SavePrescription(string patientFullName, string doctorFullName, List<Tuple<string, int>> medicineBoxNamesAndQuantities) {
+			int patientId = PatientService.GetIdByFullName(patientFullName);
+			int doctorDiplomaNumber = DoctorService.GetDiplomaNumberByFullName(doctorFullName);
+			List<MedicineBox> medicineBoxes = new List<MedicineBox>(medicineBoxNamesAndQuantities.Count);
 
-		//	foreach (var medicineBoxNameAndQuantity in medicineBoxNamesAndQuantities) {
-		//		MedicineBoxes.AddRange(MedicineBoxService.GetUnsoldMedicineBoxesByMedicineName(medicineBoxNameAndQuantity.Item1, medicineBoxNameAndQuantity.Item2));
-		//	}
+			foreach (var medicineBoxNameAndQuantity in medicineBoxNamesAndQuantities) {
+				medicineBoxes.AddRange(MedicineBoxService.GetUnsoldMedicineBoxesByMedicineName(medicineBoxNameAndQuantity.Item1, medicineBoxNameAndQuantity.Item2));
+			}
 
-		//	Prescription NewPrescription = PrescriptionsService.SaveNewAndGetPrescription(PatientId, DoctorDiplomaNumber);
+			var newPrescriptionId = PrescriptionsService.SaveNewAndGetPrescriptionId(patientId, doctorDiplomaNumber);
 
-		//	foreach (var medicineBox in MedicineBoxes) {
-		//		medicineBox.PrescriptionId = NewPrescription.Id;
-		//	}
-
-		//	MedicineBoxService.UpdateRecords(MedicineBoxes);
-		//}
+			foreach (var medicineBox in medicineBoxes) {
+				MedicineBoxService.UpdateMedicineBoxPrescriptionId(medicineBox,newPrescriptionId);
+			}
+		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MedTrackingGui.Model;
 
 namespace MedTrackingGui.Service {
@@ -25,6 +26,19 @@ namespace MedTrackingGui.Service {
 			}
 
 			return prescriptions;
+		}
+
+		public static int SaveNewAndGetPrescriptionId(int patientId, int doctorDiplomaNumber) {
+			var currentDateTime = DateTime.Now;
+			var currentEmployeeId = AuthService.GetLoggedInEmployee().Id;
+			var currentPharmacyId = AuthService.GetLoggedInEmployee().Pharmacy.Id;
+
+			string query = $@"INSERT INTO Prescription VALUES ({patientId}, {doctorDiplomaNumber}, {currentPharmacyId}, {currentEmployeeId}, '{currentDateTime:yyyy-MM-dd HH:mm:ss.fff}') SELECT SCOPE_IDENTITY()";
+			var results = DBOperations.ExecuteQuery(query);
+
+			return (int.Parse(results[0][0].ToString()));
+
+
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MedTrackingGui.Model;
 
 namespace MedTrackingGui.Service {
@@ -25,6 +26,22 @@ namespace MedTrackingGui.Service {
 			}
 
 			return patients;
+		}
+
+		public static int GetIdByFullName(string patientFullName) {
+			List<string> names = new List<string>(patientFullName.Split(' '));
+			string surname = names[names.Count - 1];
+			names.RemoveAt(names.Count - 1);
+			string name = "";
+			foreach (var s in names) {
+				name += s + ' ';
+			}
+			name = name.TrimEnd(' ');
+
+			string query = $@"SELECT Id FROM Patient WHERE Name = '{name}' AND Surname = '{surname}'";
+			var results = DBOperations.ExecuteQuery(query);
+
+			return results.Count == 0 ? -1 : (int) results[0][0];
 		}
 	}
 }

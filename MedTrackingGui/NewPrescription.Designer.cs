@@ -79,7 +79,7 @@
 			this.cbDoctorFullNames.Location = new System.Drawing.Point(111, 40);
 			this.cbDoctorFullNames.Name = "cbDoctorFullNames";
 			this.cbDoctorFullNames.Size = new System.Drawing.Size(261, 21);
-			this.cbDoctorFullNames.TabIndex = 0;
+			this.cbDoctorFullNames.TabIndex = 1;
 			// 
 			// lblDoctorFullName
 			// 
@@ -144,7 +144,7 @@
 			this.btnSave.Location = new System.Drawing.Point(425, 338);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(75, 23);
-			this.btnSave.TabIndex = 4;
+			this.btnSave.TabIndex = 5;
 			this.btnSave.Text = "Save";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -154,7 +154,7 @@
 			this.btnCancel.Location = new System.Drawing.Point(344, 338);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(75, 23);
-			this.btnCancel.TabIndex = 4;
+			this.btnCancel.TabIndex = 6;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			// 
@@ -164,7 +164,7 @@
 			this.cbMedicines.Location = new System.Drawing.Point(111, 67);
 			this.cbMedicines.Name = "cbMedicines";
 			this.cbMedicines.Size = new System.Drawing.Size(205, 21);
-			this.cbMedicines.TabIndex = 0;
+			this.cbMedicines.TabIndex = 2;
 			this.cbMedicines.SelectedIndexChanged += new System.EventHandler(this.cbMedicines_SelectedIndexChanged);
 			// 
 			// btnAddMedicineToList
@@ -173,7 +173,7 @@
 			this.btnAddMedicineToList.Location = new System.Drawing.Point(378, 65);
 			this.btnAddMedicineToList.Name = "btnAddMedicineToList";
 			this.btnAddMedicineToList.Size = new System.Drawing.Size(122, 23);
-			this.btnAddMedicineToList.TabIndex = 2;
+			this.btnAddMedicineToList.TabIndex = 4;
 			this.btnAddMedicineToList.Text = "Add Medicine To List";
 			this.btnAddMedicineToList.UseVisualStyleBackColor = true;
 			this.btnAddMedicineToList.Click += new System.EventHandler(this.btnAddMedicineToList_Click);
@@ -183,7 +183,7 @@
 			this.nudQuantity.Location = new System.Drawing.Point(322, 67);
 			this.nudQuantity.Name = "nudQuantity";
 			this.nudQuantity.Size = new System.Drawing.Size(50, 20);
-			this.nudQuantity.TabIndex = 5;
+			this.nudQuantity.TabIndex = 3;
 			this.nudQuantity.ValueChanged += new System.EventHandler(this.nudQuantity_ValueChanged);
 			// 
 			// NewPrescription

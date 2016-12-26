@@ -9,7 +9,7 @@ namespace MedTrackingGui.Service {
 		}
 
 		public static bool DoLogin(string username, string password) {
-			string query = $@"SELECT * FROM Employee WHERE Name = {username} AND Surname = {password}";
+			string query = $@"SELECT * FROM Employee WHERE Name = '{username}' AND Surname = '{password}'";
 
 			var result = DBOperations.ExecuteQuery(query);
 

@@ -54,5 +54,16 @@ ORDER BY Medicine.Name
 
 			return medicines;
 		}
+
+		public static int GetIdByMedicineName(string medicineName) {
+			var query = $@"SELECT Id FROM Medicine WHERE Name = '{medicineName}'";
+			var results = DBOperations.ExecuteQuery(query);
+
+			if (results.Count == 0) {
+				return -1;
+			}
+
+			return (int) results[0][0];
+		}
 	}
 }

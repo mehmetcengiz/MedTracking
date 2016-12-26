@@ -28,6 +28,8 @@ namespace MedTrackingGui {
 			foreach (var medicineName in medicineNames) {
 				cbMedicines.Items.Add(medicineName);
 			}
+
+			btnSave.Enabled = false;
 		}
 
 		private void btnAddMedicineToList_Click(object sender, EventArgs e) {
@@ -57,6 +59,9 @@ namespace MedTrackingGui {
 			} else {
 				cbMedicines.Items[medicineIndex] = $@"{medicineName} - {medicineQuantity}";
 			}
+			//Enable Save Button
+			btnSave.Enabled = true;
+
 		}
 
 		private void cbMedicines_SelectedIndexChanged(object sender, EventArgs e) {
@@ -89,15 +94,15 @@ namespace MedTrackingGui {
 		}
 
 		private void btnSave_Click(object sender, EventArgs e) {
-			var PatientFullName = cbPatientFullNames.SelectedItem.ToString();
-			var DoctorFullName = cbDoctorFullNames.SelectedItem.ToString();
-			List<Tuple<string, int>> Medicines = new List<Tuple<string, int>>(listViewMedicines.Items.Count);
+			var patientFullName = cbPatientFullNames.SelectedItem.ToString();
+			var doctorFullName = cbDoctorFullNames.SelectedItem.ToString().Substring(4);
+			List<Tuple<string, int>> medicines = new List<Tuple<string, int>>(listViewMedicines.Items.Count);
 
 			foreach (ListViewItem item in listViewMedicines.Items) {
-				Medicines.Add(new Tuple<string, int>(item.SubItems[0].Text, int.Parse(item.SubItems[1].Text)));
+				medicines.Add(new Tuple<string, int>(item.SubItems[1].Text, int.Parse(item.SubItems[2].Text)));
 			}
 
-			_newPrescriptionController.SavePrescription(PatientFullName, DoctorFullName, Medicines);
+			_newPrescriptionController.SavePrescription(patientFullName, doctorFullName, medicines);
 		}
 	}
 }
