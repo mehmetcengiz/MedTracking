@@ -28,8 +28,6 @@ namespace MedTrackingGui {
 			foreach (var medicineName in medicineNames) {
 				cbMedicines.Items.Add(medicineName);
 			}
-
-			btnSave.Enabled = false;
 		}
 
 		private void btnAddMedicineToList_Click(object sender, EventArgs e) {
@@ -61,7 +59,6 @@ namespace MedTrackingGui {
 			}
 			//Enable Save Button
 			btnSave.Enabled = true;
-
 		}
 
 		private void cbMedicines_SelectedIndexChanged(object sender, EventArgs e) {
@@ -103,6 +100,12 @@ namespace MedTrackingGui {
 			}
 
 			_newPrescriptionController.SavePrescription(patientFullName, doctorFullName, medicines);
+
+			DialogResult = DialogResult.OK;
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e) {
+			DialogResult = DialogResult.Cancel;
 		}
 	}
 }

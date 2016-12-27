@@ -12,12 +12,24 @@ namespace MedTrackingGui {
 		}
 
 		private void MainForm_Load(object sender, EventArgs e) {
+			PopulateList();
+		}
+
+		private void PopulateList() {
 			var givenProducts = _mainFormController.GetLastGivenProducts();
 
-			//TODO add list to view.
 			foreach (var givenProduct in givenProducts) {
 				listViewSales.Items.Add(givenProduct.GetListViewItem());
 			}
+		}
+		private void btnNewPrescription_Click(object sender, EventArgs e) {
+			var newPrescription = new NewPrescription();
+
+			if (newPrescription.ShowDialog(this) == DialogResult.OK) {
+				PopulateList();
+			}
+
+			newPrescription.Dispose();
 		}
 	}
 }

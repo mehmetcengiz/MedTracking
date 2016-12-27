@@ -69,7 +69,7 @@
 			this.btnAddNewPatient.Location = new System.Drawing.Point(378, 12);
 			this.btnAddNewPatient.Name = "btnAddNewPatient";
 			this.btnAddNewPatient.Size = new System.Drawing.Size(122, 23);
-			this.btnAddNewPatient.TabIndex = 2;
+			this.btnAddNewPatient.TabIndex = 6;
 			this.btnAddNewPatient.Text = "Add New Patient";
 			this.btnAddNewPatient.UseVisualStyleBackColor = true;
 			// 
@@ -92,10 +92,11 @@
 			// 
 			// btnAddNewDoctor
 			// 
+			this.btnAddNewDoctor.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnAddNewDoctor.Location = new System.Drawing.Point(378, 39);
 			this.btnAddNewDoctor.Name = "btnAddNewDoctor";
 			this.btnAddNewDoctor.Size = new System.Drawing.Size(122, 23);
-			this.btnAddNewDoctor.TabIndex = 2;
+			this.btnAddNewDoctor.TabIndex = 7;
 			this.btnAddNewDoctor.Text = "Add New Doctor";
 			this.btnAddNewDoctor.UseVisualStyleBackColor = true;
 			// 
@@ -120,7 +121,7 @@
 			this.listViewMedicines.Location = new System.Drawing.Point(111, 94);
 			this.listViewMedicines.Name = "listViewMedicines";
 			this.listViewMedicines.Size = new System.Drawing.Size(389, 238);
-			this.listViewMedicines.TabIndex = 3;
+			this.listViewMedicines.TabIndex = 8;
 			this.listViewMedicines.UseCompatibleStateImageBehavior = false;
 			this.listViewMedicines.View = System.Windows.Forms.View.Details;
 			// 
@@ -141,6 +142,7 @@
 			// 
 			// btnSave
 			// 
+			this.btnSave.Enabled = false;
 			this.btnSave.Location = new System.Drawing.Point(425, 338);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -151,12 +153,14 @@
 			// 
 			// btnCancel
 			// 
+			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Location = new System.Drawing.Point(344, 338);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(75, 23);
-			this.btnCancel.TabIndex = 6;
+			this.btnCancel.TabIndex = 9;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// cbMedicines
 			// 
@@ -169,6 +173,7 @@
 			// 
 			// btnAddMedicineToList
 			// 
+			this.btnAddMedicineToList.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnAddMedicineToList.Enabled = false;
 			this.btnAddMedicineToList.Location = new System.Drawing.Point(378, 65);
 			this.btnAddMedicineToList.Name = "btnAddMedicineToList";
@@ -190,6 +195,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.btnCancel;
 			this.ClientSize = new System.Drawing.Size(512, 373);
 			this.Controls.Add(this.nudQuantity);
 			this.Controls.Add(this.btnCancel);
