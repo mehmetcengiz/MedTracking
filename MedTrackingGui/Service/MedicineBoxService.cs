@@ -65,9 +65,13 @@ namespace MedTrackingGui.Service {
 		}
 
 		public static void UpdateMedicineBoxPrescriptionId(MedicineBox medicineBox, int newPrescriptionId) {
-			string query = $@"UPDATE MedicineBox SET PrescriptionId= {newPrescriptionId} WHERE QrCode={medicineBox.QrCode}";
+			string query = $@"UPDATE MedicineBox SET PrescriptionId = {newPrescriptionId} WHERE QrCode = {medicineBox.QrCode}";
 			var results = DBOperations.ExecuteQuery(query);
+		}
 
+		public static void UpdateMedicineBoxSaleId(MedicineBox medicineBox, int newSaleId) {
+			string query = $@"UPDATE MedicineBox SET SaleId = {newSaleId} WHERE QrCode = {medicineBox.QrCode}";
+			var results = DBOperations.ExecuteQuery(query);
 		}
 	}
 }

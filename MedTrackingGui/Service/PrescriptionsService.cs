@@ -33,7 +33,8 @@ namespace MedTrackingGui.Service {
 			var currentEmployeeId = AuthService.GetLoggedInEmployee().Id;
 			var currentPharmacyId = AuthService.GetLoggedInEmployee().Pharmacy.Id;
 
-			string query = $@"INSERT INTO Prescription VALUES ({patientId}, {doctorDiplomaNumber}, {currentPharmacyId}, {currentEmployeeId}, '{currentDateTime:yyyy-MM-dd HH:mm:ss.fff}') SELECT SCOPE_IDENTITY()";
+			string query = $@"INSERT INTO Prescription VALUES ({patientId}, {doctorDiplomaNumber}, {currentPharmacyId}, 
+							{currentEmployeeId}, '{currentDateTime:yyyy-MM-dd HH:mm:ss.fff}') SELECT SCOPE_IDENTITY()";
 			var results = DBOperations.ExecuteQuery(query);
 
 			return (int.Parse(results[0][0].ToString()));

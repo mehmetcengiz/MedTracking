@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using MedTrackingGui.Model;
 
 namespace MedTrackingGui.Service {

@@ -1,4 +1,3 @@
-﻿using System.Collections.Generic;
 using MedTrackingGui.Model;
 
 namespace MedTrackingGui.Service {
