@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MedTrackingGui.Controller;
+using MedTrackingGui.Service;
 
 namespace MedTrackingGui {
 	public partial class MainForm : Form {
@@ -22,6 +23,47 @@ namespace MedTrackingGui {
 				listViewSales.Items.Add(givenProduct.GetListViewItem());
 			}
 		}
+
+		private void ShowSelectedInfo() {
+			if (listViewSales.SelectedItems.Count == 0) {
+				return;
+			}
+
+			var type = listViewSales.SelectedItems[0].SubItems[1].Text;
+			var id = int.Parse(listViewSales.SelectedItems[0].Tag.ToString());
+
+			Console.WriteLine($@"Show view form for {type} with the ID of {id}.");
+
+			if (type.Equals("Sale")) {
+				//var showSaleInfo = new ShowSaleInfo(SalesService.GetSaleById(id));
+				//showSaleInfo.Show(this);
+			} else {
+				var showPrescriptionInfo = new ShowPrescriptionInfo(PrescriptionsService.GetPrescriptionById(id));
+				showPrescriptionInfo.ShowDialog(this);
+				showPrescriptionInfo.Dispose();
+			}
+		}
+
+		private void listViewSales_DoubleClick(object sender, EventArgs e) {
+			ShowSelectedInfo();
+		}
+
+		private void listViewSales_KeyDown(object sender, KeyEventArgs e) {
+			if (e.KeyCode == Keys.Enter) {
+				ShowSelectedInfo();
+			}
+		}
+
+		private void btnNewSale_Click(object sender, EventArgs e) {
+			var newSale = new NewSale();
+
+			if (newSale.ShowDialog(this) == DialogResult.OK) {
+				PopulateList();
+			}
+
+			newSale.Dispose();
+		}
+
 		private void btnNewPrescription_Click(object sender, EventArgs e) {
 			var newPrescription = new NewPrescription();
 
@@ -30,6 +72,22 @@ namespace MedTrackingGui {
 			}
 
 			newPrescription.Dispose();
+		}
+
+		private bool ConfirmQuit() {
+			return (
+				MessageBox.Show(this, @"Do you really want to quit from the application?", @"Quit Confirmation",
+					MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+		}
+
+		private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+			if (e.CloseReason == CloseReason.UserClosing) {
+				e.Cancel = !ConfirmQuit();
+			}
+		}
+
+		private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
+			Application.Exit();
 		}
 	}
 }
