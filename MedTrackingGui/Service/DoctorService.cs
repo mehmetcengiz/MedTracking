@@ -11,7 +11,7 @@ namespace MedTrackingGui.Service {
 		}
 
 		public static List<Doctor> GetAllDoctors(int limit = 1000) {
-			string query = $@"SELECT TOP {limit} * FROM Doctor";
+			string query = $@"SELECT TOP {limit} * FROM Doctor ORDER BY Name, Surname";
 			var results = DBOperations.ExecuteQuery(query);
 
 			if (results.Count == 0) {

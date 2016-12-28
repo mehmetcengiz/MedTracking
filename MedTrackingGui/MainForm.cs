@@ -5,10 +5,9 @@ using MedTrackingGui.Service;
 
 namespace MedTrackingGui {
 	public partial class MainForm : Form {
-		MainFormController _mainFormController;
+		private readonly MainFormController _mainFormController = new MainFormController();
 
 		public MainForm() {
-			_mainFormController = new MainFormController();
 			InitializeComponent();
 		}
 
@@ -17,6 +16,8 @@ namespace MedTrackingGui {
 		}
 
 		private void PopulateList() {
+			listViewSales.Items.Clear();
+
 			var givenProducts = _mainFormController.GetLastGivenProducts();
 
 			foreach (var givenProduct in givenProducts) {

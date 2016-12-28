@@ -23,7 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "100",
             "Parol",
             "15",
@@ -36,6 +36,7 @@
 			this.lblDoctorFullName = new System.Windows.Forms.Label();
 			this.tbDateAndTime = new System.Windows.Forms.TextBox();
 			this.tbEmployeeFullName = new System.Windows.Forms.TextBox();
+			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btnOk
@@ -53,10 +54,11 @@
 			// 
 			this.listViewMedicines.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
 			this.listViewMedicines.Location = new System.Drawing.Point(124, 64);
 			this.listViewMedicines.Name = "listViewMedicines";
 			this.listViewMedicines.Size = new System.Drawing.Size(376, 242);
@@ -72,7 +74,7 @@
 			// columnHeader2
 			// 
 			this.columnHeader2.Text = "Name";
-			this.columnHeader2.Width = 295;
+			this.columnHeader2.Width = 261;
 			// 
 			// label1
 			// 
@@ -107,6 +109,10 @@
 			this.tbEmployeeFullName.ReadOnly = true;
 			this.tbEmployeeFullName.Size = new System.Drawing.Size(376, 20);
 			this.tbEmployeeFullName.TabIndex = 27;
+			// 
+			// columnHeader3
+			// 
+			this.columnHeader3.Text = "Price";
 			// 
 			// ShowSaleInfo
 			// 
@@ -143,5 +149,6 @@
 		private System.Windows.Forms.Label lblDoctorFullName;
 		private System.Windows.Forms.TextBox tbDateAndTime;
 		private System.Windows.Forms.TextBox tbEmployeeFullName;
+		private System.Windows.Forms.ColumnHeader columnHeader3;
 	}
 }

@@ -40,6 +40,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.tbEmployeeFullName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// btnOk
@@ -57,7 +58,8 @@
 			// 
 			this.listViewMedicines.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
@@ -76,7 +78,7 @@
 			// columnHeader2
 			// 
 			this.columnHeader2.Text = "Name";
-			this.columnHeader2.Width = 292;
+			this.columnHeader2.Width = 260;
 			// 
 			// lblDoctorFullName
 			// 
@@ -146,6 +148,10 @@
 			this.label2.TabIndex = 10;
 			this.label2.Text = "Employee Full Name:";
 			// 
+			// columnHeader3
+			// 
+			this.columnHeader3.Text = "Price";
+			// 
 			// ShowPrescriptionInfo
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,5 +195,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox tbEmployeeFullName;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.ColumnHeader columnHeader3;
 	}
 }

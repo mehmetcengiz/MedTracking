@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 using MedTrackingGui.Model;
 
@@ -18,12 +19,13 @@ namespace MedTrackingGui {
 			tbEmployeeFullName.Text = Prescription.Employee.FullName;
 			tbDoctorFullName.Text = Prescription.Doctor.FullName;
 			tbPatientFullName.Text = Prescription.Patient.FullName;
-			tbDateAndTime.Text = Prescription.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss.fff");
+			tbDateAndTime.Text = Prescription.CreatedAt.ToString(CultureInfo.CurrentCulture);
 
 			for (int i = 0; i < Prescription.MedicineBoxes.Count; i++) {
 				listViewMedicines.Items.Add(new ListViewItem(new [] {
 					(i + 1).ToString(),
-					Prescription.MedicineBoxes[i].Medicine.Name
+					Prescription.MedicineBoxes[i].Medicine.Name,
+					$@"{Prescription.MedicineBoxes[i].AcquisitionCost.ToString(CultureInfo.InvariantCulture)} ₺"
 				}));
 			}
 		}
