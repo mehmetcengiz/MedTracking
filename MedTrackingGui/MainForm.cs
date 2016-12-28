@@ -18,7 +18,7 @@ namespace MedTrackingGui {
 		private void PopulateList() {
 			listViewSales.Items.Clear();
 
-			var givenProducts = _mainFormController.GetLastGivenProducts();
+			var givenProducts = _mainFormController.GetLastGivenProductsForThePharmacy();
 
 			foreach (var givenProduct in givenProducts) {
 				listViewSales.Items.Add(givenProduct.GetListViewItem());

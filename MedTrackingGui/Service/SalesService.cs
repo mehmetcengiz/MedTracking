@@ -11,8 +11,8 @@ namespace MedTrackingGui.Service {
 			return results.Count == 0 ? null : new Sale(results[0]);
 		}
 
-		public static List<Sale> GetLastSales(int count) {
-			string query = $@"SELECT TOP {count} * FROM Sale ORDER BY SoldAt DESC";
+		public static List<Sale> GetLastSalesForThePharmacy(int count) {
+			string query = $@"SELECT TOP {count} * FROM Sale WHERE PharmacyId = {AuthService.GetLoggedInEmployee().Pharmacy.Id} ORDER BY SoldAt DESC";
 			var results = DBOperations.ExecuteQuery(query);
 
 			if (results.Count == 0) {

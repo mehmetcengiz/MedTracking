@@ -5,10 +5,10 @@ using MedTrackingGui.Service;
 
 namespace MedTrackingGui.Controller {
 	class MainFormController {
-		public List<GivenProduct> GetLastGivenProducts() {
+		public List<GivenProduct> GetLastGivenProductsForThePharmacy() {
 			//Get List of Sale and List of Prescriptions
-			var sales = SalesService.GetLastSales(count: 30);
-			var prescriptions = PrescriptionsService.GetLastPrescriptions(count: 30);
+			var sales = SalesService.GetLastSalesForThePharmacy(count: 30);
+			var prescriptions = PrescriptionsService.GetLastPrescriptionsForThePharmacy(count: 30);
 
 			//Merge Sales and List to Single List
 			var salesOrPrescription = MergeSalesAndPrescriptions(sales, prescriptions);
