@@ -20,5 +20,23 @@ namespace MedTrackingGui {
 				MessageBox.Show(@"LoginForm Failed ! Username or Password is incorrect");
 			}
 		}
+
+		private bool ConfirmQuit() {
+			return (
+				MessageBox.Show(this, @"Do you really want to quit from the application?", @"Quit Confirmation",
+					MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e) {
+			if (ConfirmQuit()) {
+				Application.Exit();
+			}
+		}
+
+		private void LoginForm_FormClosing(object sender, FormClosingEventArgs e) {
+			if (e.CloseReason == CloseReason.UserClosing) {
+				e.Cancel = !ConfirmQuit();
+			}
+		}
 	}
 }
