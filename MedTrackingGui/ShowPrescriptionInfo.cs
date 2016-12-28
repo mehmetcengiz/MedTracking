@@ -15,6 +15,7 @@ namespace MedTrackingGui {
 		private void ShowPrescriptionInfo_Load(object sender, EventArgs e) {
 			listViewMedicines.Items.Clear();
 
+			tbEmployeeFullName.Text = Prescription.Employee.FullName;
 			tbDoctorFullName.Text = Prescription.Doctor.FullName;
 			tbPatientFullName.Text = Prescription.Patient.FullName;
 			tbDateAndTime.Text = Prescription.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss.fff");

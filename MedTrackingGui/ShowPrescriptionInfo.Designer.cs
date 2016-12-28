@@ -23,7 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "100",
             "Parol",
             "15",
@@ -38,7 +38,7 @@
 			this.tbDoctorFullName = new System.Windows.Forms.TextBox();
 			this.tbDateAndTime = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.tbEmployeeFullName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
@@ -60,7 +60,7 @@
             this.columnHeader2});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
 			this.listViewMedicines.Location = new System.Drawing.Point(124, 116);
 			this.listViewMedicines.Name = "listViewMedicines";
 			this.listViewMedicines.Size = new System.Drawing.Size(376, 242);
@@ -129,13 +129,13 @@
 			this.label1.TabIndex = 9;
 			this.label1.Text = "Date and Time:";
 			// 
-			// textBox1
+			// tbEmployeeFullName
 			// 
-			this.textBox1.Location = new System.Drawing.Point(124, 12);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(376, 20);
-			this.textBox1.TabIndex = 20;
+			this.tbEmployeeFullName.Location = new System.Drawing.Point(124, 12);
+			this.tbEmployeeFullName.Name = "tbEmployeeFullName";
+			this.tbEmployeeFullName.ReadOnly = true;
+			this.tbEmployeeFullName.Size = new System.Drawing.Size(376, 20);
+			this.tbEmployeeFullName.TabIndex = 20;
 			// 
 			// label2
 			// 
@@ -160,7 +160,7 @@
 			this.Controls.Add(this.lblPatientFullName);
 			this.Controls.Add(this.tbDateAndTime);
 			this.Controls.Add(this.tbDoctorFullName);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.tbEmployeeFullName);
 			this.Controls.Add(this.tbPatientFullName);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
@@ -187,7 +187,7 @@
 		private System.Windows.Forms.TextBox tbDoctorFullName;
 		private System.Windows.Forms.TextBox tbDateAndTime;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox tbEmployeeFullName;
 		private System.Windows.Forms.Label label2;
 	}
 }
