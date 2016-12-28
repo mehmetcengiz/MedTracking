@@ -48,6 +48,8 @@ namespace MedTrackingGui {
 					result[i][4].ToString()
 				}));
 			}
+
+			DialogResult = DialogResult.None;
 		}
 	}
 }
