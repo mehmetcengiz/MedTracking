@@ -48,11 +48,11 @@ namespace MedTrackingGui {
 			try {
 				DoctorService.AddNewDoctor(diplomaNumber, name, surname, phone, address);
 
-				MessageBox.Show(this, @"New patient record created.", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(this, @"New doctor record created.", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 				DialogResult = DialogResult.OK;
 			} catch (Exception exception) {
-				MessageBox.Show(this, $@"Error occured while creating a new patient record.\n{exception.Message}", @"Error",
+				MessageBox.Show(this, $@"Error occured while creating a new doctor record.\n{exception.Message}", @"Error",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}

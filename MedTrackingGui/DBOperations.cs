@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,16 +10,57 @@ namespace MedTrackingGui {
 		public static void Initialize() {
 			_sqlConnection =
 				//new SqlConnection("Data Source=DESKTOP-RUKSM9K;Initial Catalog=medtracking;Integrated Security=True");
-				new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=medtracking;Integrated Security=True");
+				//new SqlConnection("Data Source=DESKTOP-QAE100K;Initial Catalog=medtracking;Integrated Security=True");
 		}
 
 		public static List<List<object>> ExecuteQuery(string query) {
-			// TODO Handle DB exception
-
 			var command = new SqlCommand {
 				CommandType = CommandType.Text,
 				CommandText = query
 			};
+
+			var result = new List<List<object>>();
+
+			_sqlConnection.Open();
+			command.Connection = _sqlConnection;
+
+			SqlDataReader reader;
+
+			try {
+				 reader = command.ExecuteReader();
+			} catch (Exception e) {
+				_sqlConnection.Close();
+
+				throw e;
+			}
+
+			// ReSharper disable once TooWideLocalVariableScope
+			List<object> tempColumns;
+
+			while (reader.Read()) {
+				var tempRowLength = reader.FieldCount;
+				tempColumns = new List<object>(tempRowLength);
+
+				for (var i = 0; i < tempRowLength; i++) {
+					tempColumns.Add(reader[i]);
+				}
+
+				result.Add(tempColumns);
+			}
+
+			_sqlConnection.Close();
+			return result;
+		}
+
+		public static List<List<object>> ExecuteStoredProcedure(string name, List<Tuple<string, string, SqlDbType>> parameters) {
+			var command = new SqlCommand {
+				CommandType = CommandType.StoredProcedure,
+				CommandText = name
+			};
+
+			foreach (var parameter in parameters) {
+				command.Parameters.Add($@"@{parameter.Item1}", parameter.Item3).Value = parameter.Item2;
+			}
 
 			var result = new List<List<object>>();
 
@@ -43,49 +85,5 @@ namespace MedTrackingGui {
 			_sqlConnection.Close();
 			return result;
 		}
-
-		//public static bool DoLogin(string userName, string password) {
-		//    var parameters = new Dictionary<string, string>(2) {
-		//        {"userName", userName},
-		//        {"password", password}
-		//    };
-
-		//    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
-		//        parameters);
-
-		//    return result.Count != 0;
-		//}
-
-		//public static int GetPharmacyIdByEmployeeNameAndSurname(string userName, string password) {
-		//    var parameters = new Dictionary<string, string>(2) {
-		//        {"userName", userName},
-		//        {"password", password}
-		//    };
-
-		//    var result = ExecuteQuery(@"SELECT Pharmacy.Id FROM Pharmacy INNER JOIN Employee ON Pharmacy.Id = Employee.PharmacyId WHERE Employee.Name = @userName AND Employee.Surname = @password",
-		//        parameters);
-
-		//    return (int) result[0][0];
-		//}
-
-		//public static bool AddNewMedicineGroup(string name) {
-		//    return true;
-		//}
-
-		//public static Employee GetEmployeeByNameAndSurname(string name, string surname) {
-		//    var parameters = new Dictionary<string, string>(2) {
-		//        {"userName", name},
-		//        {"password", surname}
-		//    };
-
-		//    var result = ExecuteQuery(@"SELECT * FROM Employee WHERE Name = @userName AND Surname = @password",
-		//        parameters);
-
-		//    if (result.Count == 0) {
-		//        return null;
-		//    }
-
-		//    return null;
-		//}
 	}
 }
