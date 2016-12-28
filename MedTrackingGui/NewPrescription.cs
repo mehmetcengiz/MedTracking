@@ -8,6 +8,11 @@ namespace MedTrackingGui {
 	public partial class NewPrescription : Form {
 		private readonly NewPrescriptionController _newPrescriptionController = new NewPrescriptionController();
 
+		private bool IsDirty
+			=>
+				cbPatientFullNames.SelectedItem != null || cbDoctorFullNames.SelectedItem != null ||
+				listViewMedicines.Items.Count > 0;
+
 		public NewPrescription() {
 			InitializeComponent();
 		}
@@ -25,9 +30,10 @@ namespace MedTrackingGui {
 
 			PopulatePatients();
 
+			// TODO Extract below code to Populate... methods
 			var doctorsFullNames = _newPrescriptionController.GetDoctorFullNames();
 			var medicineNames = _newPrescriptionController.GetMedicineNamesAndStockQuantities();
-			
+
 			foreach (var doctorsFullName in doctorsFullNames) {
 				cbDoctorFullNames.Items.Add("Dr. " + doctorsFullName);
 			}
@@ -110,10 +116,6 @@ namespace MedTrackingGui {
 			DialogResult = DialogResult.OK;
 		}
 
-		private void btnCancel_Click(object sender, EventArgs e) {
-			DialogResult = DialogResult.Cancel;
-		}
-
 		private void btnAddNewPatient_Click(object sender, EventArgs e) {
 			var newPatientForm = new NewPatientForm();
 
@@ -122,6 +124,29 @@ namespace MedTrackingGui {
 			}
 
 			newPatientForm.Dispose();
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e) {
+			if (IsDirty) {
+				if (MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to close the dialog?",
+					    @"Cancel New Prescription",
+					    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+					DialogResult = DialogResult.Cancel;
+				} else {
+					DialogResult = DialogResult.None;
+				}
+			}
+		}
+
+		private void NewPrescription_FormClosing(object sender, FormClosingEventArgs e) {
+			if (IsDirty && e.CloseReason == CloseReason.UserClosing) {
+				if (
+					MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to close the dialog?",
+						@"Cancel Add New Patient",
+						MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+					e.Cancel = true;
+				}
+			}
 		}
 	}
 }

@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "100",
             "Parol",
             "15",
@@ -118,7 +118,7 @@
             this.columnHeader4});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7});
+            listViewItem1});
 			this.listViewMedicines.Location = new System.Drawing.Point(111, 94);
 			this.listViewMedicines.Name = "listViewMedicines";
 			this.listViewMedicines.Size = new System.Drawing.Size(389, 238);
@@ -218,6 +218,7 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "MedTracking - New Prescription";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewPrescription_FormClosing);
 			this.Load += new System.EventHandler(this.NewPrescription_Load);
 			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
 			this.ResumeLayout(false);

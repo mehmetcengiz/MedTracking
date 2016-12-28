@@ -1,6 +1,6 @@
 ﻿namespace MedTrackingGui
 {
-    partial class NewSale
+    partial class NewSaleForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "100",
             "Parol",
             "15",
@@ -84,10 +84,10 @@
             this.columnHeader4});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
-			this.listViewMedicines.Location = new System.Drawing.Point(72, 39);
+            listViewItem2});
+			this.listViewMedicines.Location = new System.Drawing.Point(76, 39);
 			this.listViewMedicines.Name = "listViewMedicines";
-			this.listViewMedicines.Size = new System.Drawing.Size(428, 238);
+			this.listViewMedicines.Size = new System.Drawing.Size(424, 238);
 			this.listViewMedicines.TabIndex = 4;
 			this.listViewMedicines.UseCompatibleStateImageBehavior = false;
 			this.listViewMedicines.View = System.Windows.Forms.View.Details;
@@ -121,7 +121,7 @@
 			// lblMedicines
 			// 
 			this.lblMedicines.AutoSize = true;
-			this.lblMedicines.Location = new System.Drawing.Point(8, 15);
+			this.lblMedicines.Location = new System.Drawing.Point(12, 14);
 			this.lblMedicines.Name = "lblMedicines";
 			this.lblMedicines.Size = new System.Drawing.Size(58, 13);
 			this.lblMedicines.TabIndex = 7;
@@ -130,14 +130,15 @@
 			// cbMedicines
 			// 
 			this.cbMedicines.FormattingEnabled = true;
-			this.cbMedicines.Location = new System.Drawing.Point(72, 12);
+			this.cbMedicines.Location = new System.Drawing.Point(76, 12);
 			this.cbMedicines.Name = "cbMedicines";
-			this.cbMedicines.Size = new System.Drawing.Size(244, 21);
+			this.cbMedicines.Size = new System.Drawing.Size(240, 21);
 			this.cbMedicines.TabIndex = 0;
 			this.cbMedicines.SelectedIndexChanged += new System.EventHandler(this.cbMedicines_SelectedIndexChanged);
 			// 
-			// NewSale
+			// NewSaleForm
 			// 
+			this.AcceptButton = this.btnSave;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
@@ -152,10 +153,11 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "NewSale";
+			this.Name = "NewSaleForm";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "MedTracking - New Sale";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewSale_FormClosing);
 			this.Load += new System.EventHandler(this.NewSale_Load);
 			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
 			this.ResumeLayout(false);

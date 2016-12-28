@@ -55,7 +55,7 @@ namespace MedTrackingGui {
 		}
 
 		private void btnNewSale_Click(object sender, EventArgs e) {
-			var newSale = new NewSale();
+			var newSale = new NewSaleForm();
 
 			if (newSale.ShowDialog(this) == DialogResult.OK) {
 				PopulateList();

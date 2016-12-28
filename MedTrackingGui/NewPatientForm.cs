@@ -4,7 +4,8 @@ using MedTrackingGui.Service;
 
 namespace MedTrackingGui {
 	public partial class NewPatientForm : Form {
-		public bool IsDirty => tbName.TextLength > 0 || tbSurname.TextLength > 0 || tbPhone.TextLength > 0 || tbAddress.TextLength > 0;
+		private bool IsDirty
+			=> tbName.TextLength > 0 || tbSurname.TextLength > 0 || tbPhone.TextLength > 0 || tbAddress.TextLength > 0;
 
 		public NewPatientForm() {
 			InitializeComponent();
@@ -51,9 +52,9 @@ namespace MedTrackingGui {
 
 		private void btnCancel_Click(object sender, EventArgs e) {
 			if (IsDirty) {
-				if (
-					MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to cancel?", @"Cancel Add New Patient",
-						MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+				if (MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to close the dialog?",
+					    @"Cancel Add New Patient",
+					    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
 					DialogResult = DialogResult.Cancel;
 				} else {
 					DialogResult = DialogResult.None;
@@ -63,9 +64,9 @@ namespace MedTrackingGui {
 
 		private void NewPatientForm_FormClosing(object sender, FormClosingEventArgs e) {
 			if (IsDirty && e.CloseReason == CloseReason.UserClosing) {
-				if (
-					MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to cancel?", @"Cancel Add New Patient",
-						MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+				if (MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to close the dialog?",
+					    @"Cancel Add New Patient",
+					    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
 					e.Cancel = true;
 				}
 			}

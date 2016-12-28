@@ -5,10 +5,12 @@ using System.Windows.Forms;
 using MedTrackingGui.Controller;
 
 namespace MedTrackingGui {
-	public partial class NewSale : Form {
+	public partial class NewSaleForm : Form {
 		private readonly NewSaleController _newSaleController = new NewSaleController();
 
-		public NewSale() {
+		private bool IsDirty => listViewMedicines.Items.Count > 0;
+
+		public NewSaleForm() {
 			InitializeComponent();
 		}
 
@@ -95,7 +97,25 @@ namespace MedTrackingGui {
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e) {
-			DialogResult = DialogResult.Cancel;
+			if (IsDirty) {
+				if (MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to close the dialog?",
+					    @"Cancel New Sale",
+					    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+					DialogResult = DialogResult.Cancel;
+				} else {
+					DialogResult = DialogResult.None;
+				}
+			}
+		}
+
+		private void NewSale_FormClosing(object sender, FormClosingEventArgs e) {
+			if (IsDirty && e.CloseReason == CloseReason.UserClosing) {
+				if (MessageBox.Show(this, @"Changes will be disposed upon close. Are you sure to close the dialog?",
+					    @"Cancel New Sale",
+					    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+					e.Cancel = true;
+				}
+			}
 		}
 	}
 }

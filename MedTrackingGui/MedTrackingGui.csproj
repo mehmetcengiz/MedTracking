@@ -110,11 +110,11 @@
     <Compile Include="NewPrescription.Designer.cs">
       <DependentUpon>NewPrescription.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewSale.cs">
+    <Compile Include="NewSaleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewSale.Designer.cs">
-      <DependentUpon>NewSale.cs</DependentUpon>
+    <Compile Include="NewSaleForm.Designer.cs">
+      <DependentUpon>NewSaleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Pharmacy.cs" />
     <Compile Include="Service\PatientService.cs" />
@@ -154,8 +154,8 @@
     <EmbeddedResource Include="NewPrescription.resx">
       <DependentUpon>NewPrescription.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewSale.resx">
-      <DependentUpon>NewSale.cs</DependentUpon>
+    <EmbeddedResource Include="NewSaleForm.resx">
+      <DependentUpon>NewSaleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
