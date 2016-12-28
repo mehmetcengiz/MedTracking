@@ -6,6 +6,7 @@ using System.Windows.Forms;
 namespace MedTrackingGui.Model {
 	public class GivenProduct {
 		public int Index { get; }
+		public int IdOnDatabase { get; }
 		public string Type { get; }
 		public string EmployeeFullName { get; }
 		public string PatientFullName { get; }
@@ -19,6 +20,7 @@ namespace MedTrackingGui.Model {
 			List<MedicineBox> medicines;
 
 			if (saleOrPrescription.Prescription == null) {
+				IdOnDatabase = saleOrPrescription.Sale.Id;
 				Type = @"Sale";
 				EmployeeFullName = saleOrPrescription.Sale.Employee.FullName;
 				PatientFullName = @"";
@@ -26,6 +28,7 @@ namespace MedTrackingGui.Model {
 
 				medicines = saleOrPrescription.Sale.MedicineBoxes;
 			} else {
+				IdOnDatabase = saleOrPrescription.Prescription.Id;
 				Type = @"Prescription";
 				EmployeeFullName = saleOrPrescription.Prescription.Employee.FullName;
 				PatientFullName = saleOrPrescription.Prescription.Employee.FullName;
@@ -41,7 +44,7 @@ namespace MedTrackingGui.Model {
 		}
 
 		public ListViewItem GetListViewItem() {
-			var result = new ListViewItem {Text = Index.ToString()};
+			var result = new ListViewItem {Text = Index.ToString(), Tag = IdOnDatabase};
 
 			result.SubItems.Add(Type);
 			result.SubItems.Add(EmployeeFullName);
