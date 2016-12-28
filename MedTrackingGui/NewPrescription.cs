@@ -19,10 +19,32 @@ namespace MedTrackingGui {
 		}
 
 		private void PopulatePatients() {
+			cbPatientFullNames.Items.Clear();
+
 			var patientFullNames = _newPrescriptionController.GetPatientFullNames();
 
 			foreach (var patientFullName in patientFullNames) {
 				cbPatientFullNames.Items.Add(patientFullName);
+			}
+		}
+
+		private void PopulateDoctors() {
+			cbDoctorFullNames.Items.Clear();
+
+			var doctorsFullNames = _newPrescriptionController.GetDoctorFullNames();
+
+			foreach (var doctorsFullName in doctorsFullNames) {
+				cbDoctorFullNames.Items.Add("Dr. " + doctorsFullName);
+			}
+		}
+
+		private void PopulateMedicines() {
+			cbMedicines.Items.Clear();
+
+			var medicineNames = _newPrescriptionController.GetMedicineNamesAndStockQuantities();
+
+			foreach (var medicineName in medicineNames) {
+				cbMedicines.Items.Add(medicineName);
 			}
 		}
 
@@ -34,17 +56,8 @@ namespace MedTrackingGui {
 			listViewMedicines.Items.Clear();
 
 			PopulatePatients();
-
-			// TODO Extract below code to Populate... methods
-			var doctorsFullNames = _newPrescriptionController.GetDoctorFullNames();
-			var medicineNames = _newPrescriptionController.GetMedicineNamesAndStockQuantities();
-
-			foreach (var doctorsFullName in doctorsFullNames) {
-				cbDoctorFullNames.Items.Add("Dr. " + doctorsFullName);
-			}
-			foreach (var medicineName in medicineNames) {
-				cbMedicines.Items.Add(medicineName);
-			}
+			PopulateDoctors();
+			PopulateMedicines();
 		}
 
 		private void cbPatientFullNames_SelectedIndexChanged(object sender, EventArgs e) {
@@ -97,13 +110,13 @@ namespace MedTrackingGui {
 		}
 
 		private void btnAddNewDoctor_Click(object sender, EventArgs e) {
-			var newPatientForm = new NewPatientForm();
+			var newDoctorForm = new NewDoctorForm();
 
-			if (newPatientForm.ShowDialog(this) == DialogResult.OK) {
-				PopulatePatients();
+			if (newDoctorForm.ShowDialog(this) == DialogResult.OK) {
+				PopulateDoctors();
 			}
 
-			newPatientForm.Dispose();
+			newDoctorForm.Dispose();
 
 			DialogResult = DialogResult.None;
 		}
