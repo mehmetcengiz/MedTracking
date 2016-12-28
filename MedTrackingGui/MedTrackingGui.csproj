@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Controller\MainFormController.cs" />
     <Compile Include="Controller\NewPrescriptionController.cs" />
+    <Compile Include="Controller\NewSaleController.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\GivenProduct.cs" />
     <Compile Include="Model\Manufacturer.cs" />
@@ -114,6 +115,12 @@
       <DependentUpon>SearchPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Service\SupplierService.cs" />
+    <Compile Include="ShowPrescriptionInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowPrescriptionInfo.Designer.cs">
+      <DependentUpon>ShowPrescriptionInfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +142,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ShowPrescriptionInfo.resx">
+      <DependentUpon>ShowPrescriptionInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

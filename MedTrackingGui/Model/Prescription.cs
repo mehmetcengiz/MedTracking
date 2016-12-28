@@ -17,17 +17,15 @@ namespace MedTrackingGui.Model {
 		private readonly int _patientId;
 		private readonly int _doctorDiplomaNumber;
 		private readonly int _pharmacyId;
-
-
-		public Prescription(int id, int employeeId, int patientId, int doctorDiplomaNumber, int pharmacyId,
+		
+		public Prescription(int id, int patientId, int doctorDiplomaNumber, int pharmacyId, int employeeId,
 			DateTime createdAt) {
 			Id = id;
 			_employeeId = employeeId;
 			_patientId = patientId;
 			_doctorDiplomaNumber = doctorDiplomaNumber;
 			_pharmacyId = pharmacyId;
-
-
+			
 			CreatedAt = createdAt;
 
 			MedicineBoxes = MedicineBoxService.GetMedicineBoxesByPrescriptionId(id);

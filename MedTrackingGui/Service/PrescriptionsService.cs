@@ -37,9 +37,7 @@ namespace MedTrackingGui.Service {
 							{currentEmployeeId}, '{currentDateTime:yyyy-MM-dd HH:mm:ss.fff}') SELECT SCOPE_IDENTITY()";
 			var results = DBOperations.ExecuteQuery(query);
 
-			return (int.Parse(results[0][0].ToString()));
-
-
+			return int.Parse(results[0][0].ToString());
 		}
 	}
 }
