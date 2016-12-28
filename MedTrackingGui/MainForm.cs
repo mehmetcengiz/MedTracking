@@ -96,5 +96,12 @@ namespace MedTrackingGui {
 			searchEmployee.ShowDialog(this);
 			searchEmployee.Dispose();
 		}
+
+		private void btnSearchPatient_Click(object sender, EventArgs e) {
+			var searchPatient = new SearchPatient();
+
+			searchPatient.ShowDialog(this);
+			searchPatient.Dispose();
+		}
 	}
 }

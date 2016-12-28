@@ -184,6 +184,9 @@
     <EmbeddedResource Include="SearchEmployee.resx">
       <DependentUpon>SearchEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SearchPatient.resx">
+      <DependentUpon>SearchPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShowPrescriptionInfo.resx">
       <DependentUpon>ShowPrescriptionInfo.cs</DependentUpon>
     </EmbeddedResource>

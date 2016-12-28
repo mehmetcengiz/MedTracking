@@ -84,6 +84,7 @@
 			this.btnSearchPatient.TabIndex = 3;
 			this.btnSearchPatient.Text = "Search P&atient";
 			this.btnSearchPatient.UseVisualStyleBackColor = true;
+			this.btnSearchPatient.Click += new System.EventHandler(this.btnSearchPatient_Click);
 			// 
 			// lblTodaySales
 			// 
