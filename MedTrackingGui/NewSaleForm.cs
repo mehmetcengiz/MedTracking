@@ -10,8 +10,41 @@ namespace MedTrackingGui {
 
 		private bool IsDirty => listViewMedicines.Items.Count > 0;
 
+		private void EnableSaveButton() {
+			btnSave.Enabled = listViewMedicines.Items.Count > 0;
+		}
+
 		public NewSaleForm() {
 			InitializeComponent();
+		}
+
+		private void cbMedicines_SelectedIndexChanged(object sender, EventArgs e) {
+			// Disable the add button if no medicine is selected
+			if (cbMedicines.Text.Equals(string.Empty)) {
+				btnAddMedicineToList.Enabled = false;
+
+				return;
+			}
+
+			// Get quantity for the medicine and set as numeric up/down's maximum
+			var qty = int.Parse(cbMedicines.SelectedItem.ToString().Split('-')[1].TrimEnd(' '));
+
+			nudQuantity.Maximum = qty;
+
+			// Enable the add button if other (numeric up/downs value is greater than 0) conditions also met
+			if (int.Parse(nudQuantity.Value.ToString(CultureInfo.CurrentCulture)) > 0) {
+				btnAddMedicineToList.Enabled = true;
+			}
+		}
+
+		private void nudQuantity_ValueChanged(object sender, EventArgs e) {
+			if (int.Parse(nudQuantity.Value.ToString(CultureInfo.CurrentCulture)) == 0) {
+				// Disable the add button if numeric up/down's value is 0...
+				btnAddMedicineToList.Enabled = false;
+			} else if (!cbMedicines.Text.Equals(string.Empty)) {
+				// ... if not enable the add button if other (is there any medicine selected) conditions also met
+				btnAddMedicineToList.Enabled = true;
+			}
 		}
 
 		private void NewSale_Load(object sender, EventArgs e) {
@@ -51,37 +84,10 @@ namespace MedTrackingGui {
 			} else {
 				cbMedicines.Items[medicineIndex] = $@"{medicineName} - {medicineQuantity}";
 			}
-			//Enable Save Button
-			btnSave.Enabled = true;
-		}
 
-		private void cbMedicines_SelectedIndexChanged(object sender, EventArgs e) {
-			// Disable the add button if no medicine is selected
-			if (cbMedicines.Text.Equals(string.Empty)) {
-				btnAddMedicineToList.Enabled = false;
+			EnableSaveButton();
 
-				return;
-			}
-
-			// Get quantity for the medicine and set as numeric up/down's maximum
-			var qty = int.Parse(cbMedicines.SelectedItem.ToString().Split('-')[1].TrimEnd(' '));
-
-			nudQuantity.Maximum = qty;
-
-			// Enable the add button if other (numeric up/downs value is greater than 0) conditions also met
-			if (int.Parse(nudQuantity.Value.ToString(CultureInfo.CurrentCulture)) > 0) {
-				btnAddMedicineToList.Enabled = true;
-			}
-		}
-
-		private void nudQuantity_ValueChanged(object sender, EventArgs e) {
-			if (int.Parse(nudQuantity.Value.ToString(CultureInfo.CurrentCulture)) == 0) {
-				// Disable the add button if numeric up/down's value is 0...
-				btnAddMedicineToList.Enabled = false;
-			} else if (!cbMedicines.Text.Equals(string.Empty)) {
-				// ... if not enable the add button if other (is there any medicine selected) conditions also met
-				btnAddMedicineToList.Enabled = true;
-			}
+			DialogResult = DialogResult.None;
 		}
 
 		private void btnSave_Click(object sender, EventArgs e) {

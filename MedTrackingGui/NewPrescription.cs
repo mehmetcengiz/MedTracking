@@ -13,10 +13,6 @@ namespace MedTrackingGui {
 				cbPatientFullNames.SelectedItem != null || cbDoctorFullNames.SelectedItem != null ||
 				listViewMedicines.Items.Count > 0;
 
-		public NewPrescription() {
-			InitializeComponent();
-		}
-
 		private void EnableSaveButton() {
 			btnSave.Enabled = cbPatientFullNames.SelectedItem != null && cbDoctorFullNames.SelectedItem != null &&
 			                  listViewMedicines.Items.Count > 0;
@@ -28,6 +24,10 @@ namespace MedTrackingGui {
 			foreach (var patientFullName in patientFullNames) {
 				cbPatientFullNames.Items.Add(patientFullName);
 			}
+		}
+
+		public NewPrescription() {
+			InitializeComponent();
 		}
 
 		private void NewPrescription_Load(object sender, EventArgs e) {
@@ -92,6 +92,8 @@ namespace MedTrackingGui {
 			}
 
 			newPatientForm.Dispose();
+
+			DialogResult = DialogResult.None;
 		}
 
 		private void btnAddNewDoctor_Click(object sender, EventArgs e) {
@@ -102,6 +104,8 @@ namespace MedTrackingGui {
 			}
 
 			newPatientForm.Dispose();
+
+			DialogResult = DialogResult.None;
 		}
 
 		private void btnAddMedicineToList_Click(object sender, EventArgs e) {
@@ -133,6 +137,8 @@ namespace MedTrackingGui {
 			}
 
 			EnableSaveButton();
+
+			DialogResult = DialogResult.None;
 		}
 
 		private void btnSave_Click(object sender, EventArgs e) {

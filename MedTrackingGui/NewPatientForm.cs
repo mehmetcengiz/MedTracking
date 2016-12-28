@@ -7,13 +7,13 @@ namespace MedTrackingGui {
 		private bool IsDirty
 			=> tbName.TextLength > 0 || tbSurname.TextLength > 0 || tbPhone.TextLength > 0 || tbAddress.TextLength > 0;
 
-		public NewPatientForm() {
-			InitializeComponent();
-		}
-
 		private void EnableSaveButton() {
 			btnSave.Enabled = tbName.TextLength > 0 && tbSurname.TextLength > 0 && tbPhone.TextLength > 0 &&
 			                  tbAddress.TextLength > 0;
+		}
+
+		public NewPatientForm() {
+			InitializeComponent();
 		}
 
 		private void tbName_TextChanged(object sender, EventArgs e) {
