@@ -17,6 +17,11 @@ namespace MedTrackingGui {
 			InitializeComponent();
 		}
 
+		private void EnableSaveButton() {
+			btnSave.Enabled = cbPatientFullNames.SelectedItem != null && cbDoctorFullNames.SelectedItem != null &&
+			                  listViewMedicines.Items.Count > 0;
+		}
+
 		private void PopulatePatients() {
 			var patientFullNames = _newPrescriptionController.GetPatientFullNames();
 
@@ -42,35 +47,12 @@ namespace MedTrackingGui {
 			}
 		}
 
-		private void btnAddMedicineToList_Click(object sender, EventArgs e) {
-			// Gather medicine's information to add
-			var medicineIndex = cbMedicines.SelectedIndex;
-			var medicineName = cbMedicines.SelectedItem.ToString().Split('-')[0].TrimEnd(' ');
-			var medicineQuantity = int.Parse(cbMedicines.SelectedItem.ToString().Split('-')[1].TrimEnd(' '));
-			var medicineNeeded = int.Parse(nudQuantity.Value.ToString(CultureInfo.CurrentCulture));
+		private void cbPatientFullNames_SelectedIndexChanged(object sender, EventArgs e) {
+			EnableSaveButton();
+		}
 
-			// Add the medicine to the list with gathered info
-			var addedMedicine = new ListViewItem((listViewMedicines.Items.Count + 1).ToString());
-			addedMedicine.SubItems.Add(medicineName);
-			addedMedicine.SubItems.Add(medicineNeeded.ToString());
-
-			listViewMedicines.Items.Add(addedMedicine);
-
-			// Reset inputs
-			cbMedicines.SelectedIndex = 0;
-			cbMedicines.Text = @"";
-			nudQuantity.Text = @"0";
-
-			// Update remaining qty and remove the medicine from combobox if qty zeroed out
-			medicineQuantity -= medicineNeeded;
-
-			if (medicineQuantity == 0) {
-				cbMedicines.Items.RemoveAt(medicineIndex);
-			} else {
-				cbMedicines.Items[medicineIndex] = $@"{medicineName} - {medicineQuantity}";
-			}
-			//Enable Save Button
-			btnSave.Enabled = true;
+		private void cbDoctorFullNames_SelectedIndexChanged(object sender, EventArgs e) {
+			EnableSaveButton();
 		}
 
 		private void cbMedicines_SelectedIndexChanged(object sender, EventArgs e) {
@@ -102,6 +84,57 @@ namespace MedTrackingGui {
 			}
 		}
 
+		private void btnAddNewPatient_Click(object sender, EventArgs e) {
+			var newPatientForm = new NewPatientForm();
+
+			if (newPatientForm.ShowDialog(this) == DialogResult.OK) {
+				PopulatePatients();
+			}
+
+			newPatientForm.Dispose();
+		}
+
+		private void btnAddNewDoctor_Click(object sender, EventArgs e) {
+			var newPatientForm = new NewPatientForm();
+
+			if (newPatientForm.ShowDialog(this) == DialogResult.OK) {
+				PopulatePatients();
+			}
+
+			newPatientForm.Dispose();
+		}
+
+		private void btnAddMedicineToList_Click(object sender, EventArgs e) {
+			// Gather medicine's information to add
+			var medicineIndex = cbMedicines.SelectedIndex;
+			var medicineName = cbMedicines.SelectedItem.ToString().Split('-')[0].TrimEnd(' ');
+			var medicineQuantity = int.Parse(cbMedicines.SelectedItem.ToString().Split('-')[1].TrimEnd(' '));
+			var medicineNeeded = int.Parse(nudQuantity.Value.ToString(CultureInfo.CurrentCulture));
+
+			// Add the medicine to the list with gathered info
+			var addedMedicine = new ListViewItem((listViewMedicines.Items.Count + 1).ToString());
+			addedMedicine.SubItems.Add(medicineName);
+			addedMedicine.SubItems.Add(medicineNeeded.ToString());
+
+			listViewMedicines.Items.Add(addedMedicine);
+
+			// Reset inputs
+			cbMedicines.SelectedIndex = 0;
+			cbMedicines.Text = @"";
+			nudQuantity.Text = @"0";
+
+			// Update remaining qty and remove the medicine from combobox if qty zeroed out
+			medicineQuantity -= medicineNeeded;
+
+			if (medicineQuantity == 0) {
+				cbMedicines.Items.RemoveAt(medicineIndex);
+			} else {
+				cbMedicines.Items[medicineIndex] = $@"{medicineName} - {medicineQuantity}";
+			}
+
+			EnableSaveButton();
+		}
+
 		private void btnSave_Click(object sender, EventArgs e) {
 			var patientFullName = cbPatientFullNames.SelectedItem.ToString();
 			var doctorFullName = cbDoctorFullNames.SelectedItem.ToString().Substring(4);
@@ -114,16 +147,6 @@ namespace MedTrackingGui {
 			_newPrescriptionController.SavePrescription(patientFullName, doctorFullName, medicines);
 
 			DialogResult = DialogResult.OK;
-		}
-
-		private void btnAddNewPatient_Click(object sender, EventArgs e) {
-			var newPatientForm = new NewPatientForm();
-
-			if (newPatientForm.ShowDialog(this) == DialogResult.OK) {
-				PopulatePatients();
-			}
-
-			newPatientForm.Dispose();
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e) {

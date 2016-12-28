@@ -48,7 +48,6 @@ namespace MedTrackingGui.Model {
 
 			result.SubItems.Add(Type);
 			result.SubItems.Add(EmployeeFullName);
-			result.SubItems.Add(PatientFullName);
 			result.SubItems.Add(Date.ToString(CultureInfo.InvariantCulture));
 			result.SubItems.Add(TotalMedicine.ToString());
 			result.SubItems.Add($@"{TotalPrice.ToString(CultureInfo.CurrentCulture)} ₺");

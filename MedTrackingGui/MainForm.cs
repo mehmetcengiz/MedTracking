@@ -75,7 +75,7 @@ namespace MedTrackingGui {
 
 		private bool ConfirmQuit() {
 			return (
-				MessageBox.Show(this, @"Do you really want to quit from the application?", @"Quit Confirmation",
+				MessageBox.Show(this, @"Do you really want to quit from the application?", @"Quit Application",
 					MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
 		}
 

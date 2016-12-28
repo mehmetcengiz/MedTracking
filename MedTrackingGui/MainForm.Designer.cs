@@ -37,7 +37,6 @@
 			this.colNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.colEmployee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.colPatient = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.colTotalMedicine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.colTotalPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,7 +66,7 @@
 			// 
 			// btnSearchEmployee
 			// 
-			this.btnSearchEmployee.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.btnSearchEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnSearchEmployee.Location = new System.Drawing.Point(12, 377);
 			this.btnSearchEmployee.Name = "btnSearchEmployee";
 			this.btnSearchEmployee.Size = new System.Drawing.Size(119, 38);
@@ -77,7 +76,7 @@
 			// 
 			// btnSearchPatient
 			// 
-			this.btnSearchPatient.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.btnSearchPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnSearchPatient.Location = new System.Drawing.Point(12, 332);
 			this.btnSearchPatient.Name = "btnSearchPatient";
 			this.btnSearchPatient.Size = new System.Drawing.Size(119, 39);
@@ -104,7 +103,6 @@
             this.colNumber,
             this.colType,
             this.colEmployee,
-            this.colPatient,
             this.colDate,
             this.colTotalMedicine,
             this.colTotalPrice});
@@ -127,22 +125,17 @@
 			// colType
 			// 
 			this.colType.Text = "Type";
-			this.colType.Width = 78;
+			this.colType.Width = 71;
 			// 
 			// colEmployee
 			// 
 			this.colEmployee.Text = "Employee";
-			this.colEmployee.Width = 119;
-			// 
-			// colPatient
-			// 
-			this.colPatient.Text = "Patient";
-			this.colPatient.Width = 112;
+			this.colEmployee.Width = 111;
 			// 
 			// colDate
 			// 
 			this.colDate.Text = "Date";
-			this.colDate.Width = 99;
+			this.colDate.Width = 117;
 			// 
 			// colTotalMedicine
 			// 
@@ -152,7 +145,7 @@
 			// colTotalPrice
 			// 
 			this.colTotalPrice.Text = "Total Price";
-			this.colTotalPrice.Width = 114;
+			this.colTotalPrice.Width = 105;
 			// 
 			// MainForm
 			// 
@@ -187,7 +180,6 @@
         private System.Windows.Forms.ColumnHeader colNumber;
         private System.Windows.Forms.ColumnHeader colType;
         private System.Windows.Forms.ColumnHeader colEmployee;
-        private System.Windows.Forms.ColumnHeader colPatient;
         private System.Windows.Forms.ColumnHeader colDate;
         private System.Windows.Forms.ColumnHeader colTotalMedicine;
         private System.Windows.Forms.ColumnHeader colTotalPrice;

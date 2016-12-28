@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "100",
             "Parol",
             "15",
@@ -54,6 +54,7 @@
 			this.cbPatientFullNames.Name = "cbPatientFullNames";
 			this.cbPatientFullNames.Size = new System.Drawing.Size(261, 21);
 			this.cbPatientFullNames.TabIndex = 0;
+			this.cbPatientFullNames.SelectedIndexChanged += new System.EventHandler(this.cbPatientFullNames_SelectedIndexChanged);
 			// 
 			// lblPatientFullName
 			// 
@@ -81,6 +82,7 @@
 			this.cbDoctorFullNames.Name = "cbDoctorFullNames";
 			this.cbDoctorFullNames.Size = new System.Drawing.Size(261, 21);
 			this.cbDoctorFullNames.TabIndex = 1;
+			this.cbDoctorFullNames.SelectedIndexChanged += new System.EventHandler(this.cbDoctorFullNames_SelectedIndexChanged);
 			// 
 			// lblDoctorFullName
 			// 
@@ -100,6 +102,7 @@
 			this.btnAddNewDoctor.TabIndex = 7;
 			this.btnAddNewDoctor.Text = "Add New &Doctor";
 			this.btnAddNewDoctor.UseVisualStyleBackColor = true;
+			this.btnAddNewDoctor.Click += new System.EventHandler(this.btnAddNewDoctor_Click);
 			// 
 			// lblMedicines
 			// 
@@ -118,7 +121,7 @@
             this.columnHeader4});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
 			this.listViewMedicines.Location = new System.Drawing.Point(111, 94);
 			this.listViewMedicines.Name = "listViewMedicines";
 			this.listViewMedicines.Size = new System.Drawing.Size(389, 238);
