@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "100",
             "Parol",
             "15",
@@ -48,7 +48,7 @@
 			// 
 			// nudQuantity
 			// 
-			this.nudQuantity.Location = new System.Drawing.Point(283, 12);
+			this.nudQuantity.Location = new System.Drawing.Point(322, 12);
 			this.nudQuantity.Name = "nudQuantity";
 			this.nudQuantity.Size = new System.Drawing.Size(50, 20);
 			this.nudQuantity.TabIndex = 1;
@@ -57,22 +57,22 @@
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(306, 283);
+			this.btnCancel.Location = new System.Drawing.Point(344, 283);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.btnCancel.TabIndex = 5;
-			this.btnCancel.Text = "Cancel";
+			this.btnCancel.Text = "&Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// btnSave
 			// 
 			this.btnSave.Enabled = false;
-			this.btnSave.Location = new System.Drawing.Point(387, 283);
+			this.btnSave.Location = new System.Drawing.Point(425, 283);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(75, 23);
 			this.btnSave.TabIndex = 3;
-			this.btnSave.Text = "Save";
+			this.btnSave.Text = "&Save";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
 			// 
@@ -84,10 +84,10 @@
             this.columnHeader4});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem4});
 			this.listViewMedicines.Location = new System.Drawing.Point(72, 39);
 			this.listViewMedicines.Name = "listViewMedicines";
-			this.listViewMedicines.Size = new System.Drawing.Size(389, 238);
+			this.listViewMedicines.Size = new System.Drawing.Size(428, 238);
 			this.listViewMedicines.TabIndex = 4;
 			this.listViewMedicines.UseCompatibleStateImageBehavior = false;
 			this.listViewMedicines.View = System.Windows.Forms.View.Details;
@@ -110,11 +110,11 @@
 			// btnAddMedicineToList
 			// 
 			this.btnAddMedicineToList.Enabled = false;
-			this.btnAddMedicineToList.Location = new System.Drawing.Point(339, 10);
+			this.btnAddMedicineToList.Location = new System.Drawing.Point(378, 10);
 			this.btnAddMedicineToList.Name = "btnAddMedicineToList";
 			this.btnAddMedicineToList.Size = new System.Drawing.Size(122, 23);
 			this.btnAddMedicineToList.TabIndex = 2;
-			this.btnAddMedicineToList.Text = "Add Medicine To List";
+			this.btnAddMedicineToList.Text = "Add &Medicine To List";
 			this.btnAddMedicineToList.UseVisualStyleBackColor = true;
 			this.btnAddMedicineToList.Click += new System.EventHandler(this.btnAddMedicineToList_Click);
 			// 
@@ -132,7 +132,7 @@
 			this.cbMedicines.FormattingEnabled = true;
 			this.cbMedicines.Location = new System.Drawing.Point(72, 12);
 			this.cbMedicines.Name = "cbMedicines";
-			this.cbMedicines.Size = new System.Drawing.Size(205, 21);
+			this.cbMedicines.Size = new System.Drawing.Size(244, 21);
 			this.cbMedicines.TabIndex = 0;
 			this.cbMedicines.SelectedIndexChanged += new System.EventHandler(this.cbMedicines_SelectedIndexChanged);
 			// 
@@ -141,7 +141,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(474, 317);
+			this.ClientSize = new System.Drawing.Size(512, 318);
 			this.Controls.Add(this.nudQuantity);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnSave);
@@ -149,8 +149,13 @@
 			this.Controls.Add(this.btnAddMedicineToList);
 			this.Controls.Add(this.lblMedicines);
 			this.Controls.Add(this.cbMedicines);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "NewSale";
-			this.Text = "NewSale";
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "MedTracking - New Sale";
 			this.Load += new System.EventHandler(this.NewSale_Load);
 			((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
 			this.ResumeLayout(false);

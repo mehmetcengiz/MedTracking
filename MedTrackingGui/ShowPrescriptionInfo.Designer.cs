@@ -23,7 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "100",
             "Parol",
             "15",
@@ -47,7 +47,7 @@
 			this.btnOk.Name = "btnOk";
 			this.btnOk.Size = new System.Drawing.Size(75, 23);
 			this.btnOk.TabIndex = 19;
-			this.btnOk.Text = "OK";
+			this.btnOk.Text = "&OK";
 			this.btnOk.UseVisualStyleBackColor = true;
 			this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
 			// 
@@ -58,10 +58,10 @@
             this.columnHeader2});
 			this.listViewMedicines.FullRowSelect = true;
 			this.listViewMedicines.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-			this.listViewMedicines.Location = new System.Drawing.Point(111, 92);
+            listViewItem3});
+			this.listViewMedicines.Location = new System.Drawing.Point(111, 90);
 			this.listViewMedicines.Name = "listViewMedicines";
-			this.listViewMedicines.Size = new System.Drawing.Size(389, 240);
+			this.listViewMedicines.Size = new System.Drawing.Size(389, 242);
 			this.listViewMedicines.TabIndex = 16;
 			this.listViewMedicines.UseCompatibleStateImageBehavior = false;
 			this.listViewMedicines.View = System.Windows.Forms.View.Details;
@@ -79,7 +79,7 @@
 			// lblDoctorFullName
 			// 
 			this.lblDoctorFullName.AutoSize = true;
-			this.lblDoctorFullName.Location = new System.Drawing.Point(13, 43);
+			this.lblDoctorFullName.Location = new System.Drawing.Point(13, 41);
 			this.lblDoctorFullName.Name = "lblDoctorFullName";
 			this.lblDoctorFullName.Size = new System.Drawing.Size(92, 13);
 			this.lblDoctorFullName.TabIndex = 9;
@@ -104,7 +104,7 @@
 			// 
 			// tbDoctorFullName
 			// 
-			this.tbDoctorFullName.Location = new System.Drawing.Point(111, 40);
+			this.tbDoctorFullName.Location = new System.Drawing.Point(111, 38);
 			this.tbDoctorFullName.Name = "tbDoctorFullName";
 			this.tbDoctorFullName.ReadOnly = true;
 			this.tbDoctorFullName.Size = new System.Drawing.Size(389, 20);
@@ -112,7 +112,7 @@
 			// 
 			// tbDateAndTime
 			// 
-			this.tbDateAndTime.Location = new System.Drawing.Point(111, 66);
+			this.tbDateAndTime.Location = new System.Drawing.Point(111, 64);
 			this.tbDateAndTime.Name = "tbDateAndTime";
 			this.tbDateAndTime.ReadOnly = true;
 			this.tbDateAndTime.Size = new System.Drawing.Size(389, 20);
@@ -121,7 +121,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(25, 69);
+			this.label1.Location = new System.Drawing.Point(25, 67);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(80, 13);
 			this.label1.TabIndex = 9;
@@ -143,9 +143,11 @@
 			this.Controls.Add(this.tbPatientFullName);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "ShowPrescriptionInfo";
+			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Prescription Info";
+			this.Text = "MedTracking - Prescription Info";
 			this.Load += new System.EventHandler(this.ShowPrescriptionInfo_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

@@ -46,7 +46,7 @@
 			this.btnLogin.Name = "btnLogin";
 			this.btnLogin.Size = new System.Drawing.Size(142, 23);
 			this.btnLogin.TabIndex = 2;
-			this.btnLogin.Text = "Login";
+			this.btnLogin.Text = "&Login";
 			this.btnLogin.UseVisualStyleBackColor = true;
 			this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
 			// 
@@ -92,7 +92,7 @@
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.btnCancel.TabIndex = 3;
-			this.btnCancel.Text = "Quit";
+			this.btnCancel.Text = "&Quit";
 			this.btnCancel.UseVisualStyleBackColor = true;
 			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 

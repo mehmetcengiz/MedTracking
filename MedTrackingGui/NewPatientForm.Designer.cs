@@ -149,7 +149,7 @@
 			this.Name = "NewPatientForm";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "MedTracking - Add New Patient";
+			this.Text = "MedTracking - New Patient";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewPatientForm_FormClosing);
 			this.ResumeLayout(false);
 			this.PerformLayout();
