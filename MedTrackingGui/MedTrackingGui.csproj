@@ -74,6 +74,12 @@
     <Compile Include="Model\Medicine.cs" />
     <Compile Include="Model\MedicineBox.cs" />
     <Compile Include="Model\Supplier.cs" />
+    <Compile Include="NewDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewDoctorForm.Designer.cs">
+      <DependentUpon>NewDoctorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewDoctorForm.resx">
+      <DependentUpon>NewDoctorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatientForm.resx">
       <DependentUpon>NewPatientForm.cs</DependentUpon>
