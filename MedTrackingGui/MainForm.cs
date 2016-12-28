@@ -32,11 +32,10 @@ namespace MedTrackingGui {
 			var type = listViewSales.SelectedItems[0].SubItems[1].Text;
 			var id = int.Parse(listViewSales.SelectedItems[0].Tag.ToString());
 
-			Console.WriteLine($@"Show view form for {type} with the ID of {id}.");
-
 			if (type.Equals("Sale")) {
-				//var showSaleInfo = new ShowSaleInfo(SalesService.GetSaleById(id));
-				//showSaleInfo.Show(this);
+				var showSaleInfo = new ShowSaleInfo(SalesService.GetSaleById(id));
+				showSaleInfo.ShowDialog(this);
+				showSaleInfo.Dispose();
 			} else {
 				var showPrescriptionInfo = new ShowPrescriptionInfo(PrescriptionsService.GetPrescriptionById(id));
 				showPrescriptionInfo.ShowDialog(this);

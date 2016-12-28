@@ -142,6 +142,12 @@
     <Compile Include="ShowPrescriptionInfo.Designer.cs">
       <DependentUpon>ShowPrescriptionInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowSaleInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowSaleInfo.Designer.cs">
+      <DependentUpon>ShowSaleInfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="ShowPrescriptionInfo.resx">
       <DependentUpon>ShowPrescriptionInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowSaleInfo.resx">
+      <DependentUpon>ShowSaleInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
