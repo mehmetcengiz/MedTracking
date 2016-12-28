@@ -72,6 +72,7 @@
 			this.btnAddNewPatient.TabIndex = 6;
 			this.btnAddNewPatient.Text = "Add New Patient";
 			this.btnAddNewPatient.UseVisualStyleBackColor = true;
+			this.btnAddNewPatient.Click += new System.EventHandler(this.btnAddNewPatient_Click);
 			// 
 			// cbDoctorFullNames
 			// 

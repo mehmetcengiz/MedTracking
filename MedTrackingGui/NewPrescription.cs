@@ -12,16 +12,22 @@ namespace MedTrackingGui {
 			InitializeComponent();
 		}
 
-		private void NewPrescription_Load(object sender, EventArgs e) {
-			listViewMedicines.Items.Clear();
-
+		private void PopulatePatients() {
 			var patientFullNames = _newPrescriptionController.GetPatientFullNames();
-			var doctorsFullNames = _newPrescriptionController.GetDoctorFullNames();
-			var medicineNames = _newPrescriptionController.GetMedicineNamesAndStockQuantities();
 
 			foreach (var patientFullName in patientFullNames) {
 				cbPatientFullNames.Items.Add(patientFullName);
 			}
+		}
+
+		private void NewPrescription_Load(object sender, EventArgs e) {
+			listViewMedicines.Items.Clear();
+
+			PopulatePatients();
+
+			var doctorsFullNames = _newPrescriptionController.GetDoctorFullNames();
+			var medicineNames = _newPrescriptionController.GetMedicineNamesAndStockQuantities();
+			
 			foreach (var doctorsFullName in doctorsFullNames) {
 				cbDoctorFullNames.Items.Add("Dr. " + doctorsFullName);
 			}
@@ -106,6 +112,16 @@ namespace MedTrackingGui {
 
 		private void btnCancel_Click(object sender, EventArgs e) {
 			DialogResult = DialogResult.Cancel;
+		}
+
+		private void btnAddNewPatient_Click(object sender, EventArgs e) {
+			var newPatientForm = new NewPatientForm();
+
+			if (newPatientForm.ShowDialog(this) == DialogResult.OK) {
+				PopulatePatients();
+			}
+
+			newPatientForm.Dispose();
 		}
 	}
 }

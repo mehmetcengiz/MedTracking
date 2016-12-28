@@ -42,5 +42,10 @@ namespace MedTrackingGui.Service {
 
 			return results.Count == 0 ? -1 : (int) results[0][0];
 		}
+
+		public static void AddNewPatient(string name, string surname, string phone, string address) {
+			string query = $@"INSERT INTO Patient VALUES ('{name}', '{surname}', '{phone}', '{address}')";
+			var results = DBOperations.ExecuteQuery(query);
+		}
 	}
 }
