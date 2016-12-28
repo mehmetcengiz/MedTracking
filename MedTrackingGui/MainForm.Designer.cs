@@ -73,6 +73,7 @@
 			this.btnSearchEmployee.TabIndex = 4;
 			this.btnSearchEmployee.Text = "Search &Employee";
 			this.btnSearchEmployee.UseVisualStyleBackColor = true;
+			this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
 			// 
 			// btnSearchPatient
 			// 

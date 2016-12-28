@@ -181,6 +181,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SearchEmployee.resx">
+      <DependentUpon>SearchEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShowPrescriptionInfo.resx">
       <DependentUpon>ShowPrescriptionInfo.cs</DependentUpon>
     </EmbeddedResource>

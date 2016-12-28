@@ -89,5 +89,12 @@ namespace MedTrackingGui {
 		private void MainForm_FormClosed(object sender, FormClosedEventArgs e) {
 			Application.Exit();
 		}
+
+		private void btnSearchEmployee_Click(object sender, EventArgs e) {
+			var searchEmployee = new SearchEmployee();
+
+			searchEmployee.ShowDialog(this);
+			searchEmployee.Dispose();
+		}
 	}
 }
